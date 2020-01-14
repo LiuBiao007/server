@@ -1,0 +1,22 @@
+frame_work = "../frameWork/"
+game_common = "../gameCommon/"
+skynet_root = frame_work .. "3rd/skynet/"
+root = "../gameserver/"
+skynet_compat10 = skynet_root .. "lualib/compat10/?.lua;"
+mylualib = root .. "lualib/"
+logic = root .. "logic/"
+const = root .. "const/"
+thread = 1
+harbor = 0
+start = "client"
+bootstrap = "snlua bootstrap"
+
+lua_path = skynet_compat10 .. skynet_root .. "lualib/?.lua;" .. root .. "?.lua;" .. root .. "lualib/?.lua;" .. "../common/?.lua;" .. logic .. "?.lua;" .. const .. "?.lua;" .. "./?.lua;" .. "../robot/?.lua;".. frame_work .. "?.lua;" .. frame_work .. "game/?.lua;" .. frame_work .. "package/?.lua;" .. game_common .. "?.lua;".. game_common .. "const/?.lua;"
+
+lua_cpath = skynet_root .. "luaclib/?.so;" .. root .. "luaclib/?.so;".. frame_work .. "cservice/?.so"
+cpath = skynet_root .. "cservice/?.so;" .. frame_work .. "cservice/?.so"
+luaservice = skynet_root .. "service/?.lua;" .. root .. "/luaservice/?.lua;" .. "./?.lua;" ..frame_work .. "services/?.lua;".. frame_work .. "package/http/?.lua;"
+lualoader = skynet_root .. "lualib/loader.lua"
+snax = skynet_root .. "?.lua"
+
+

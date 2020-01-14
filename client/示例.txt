@@ -1,0 +1,40 @@
+createcharcter zhangsan21 1 jamaaaa8 3 1
+createcharcter zhangsan22 1 jamaaaa9 3 1
+entergame jamaaaa8 1
+additem 80001 1
+removeitem 80001 1
+addstone 100
+addgoldcoin 80
+herobags
+trainplayer 1000002
+trainchoose 1
+
+
+# 宝物协议
+-----------
+equipTreasure  上阵类型(0:表示主英雄 非零表示heroId) 宝物ID
+unequipTreasure 宝物ID
+refineTreasure 宝物ID
+enhanceTreasure 宝物ID 吞噬的宝物(多个以;隔开)
+sellTreasures 出售的宝物(多个以;隔开)
+compoundTreasure 合成宝物原型ID(13000003)
+smelterTreasure 熔炉宝物ID 熔炉配置ID
+
+-- 常规活动Demo
+activityDemoTest
+
+# 夺宝活动协议
+----------------
+robTreasureFragment 宝物碎片原型ID 被抢者(机器人ID或玩家ID)
+refreshFightList 宝物碎片原型ID
+robTreasureGuard 免战令牌原型ID
+
+
+dynamicActivityInsert 1900000 测试标题 测试描述 测试详情描述 1 1 2016-07-05&nbsp;01:30:00 2016-07-13&nbsp;23:59:00 1-7 00:00-23:59 1000000 {"addExp":100,"countPerDay":5,"testString":"测试字符串"}
+
+dynamicActivitySetState 1900000 3
+
+dynamicActivityRemove 1900000
+
+-- 运营活动Demo
+dynamicActivityDemoTakeExp 1900000

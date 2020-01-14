@@ -1,0 +1,1570 @@
+
+local skynet       = require "skynet"
+local mylog        = mylog
+local sharedata    = require "skynet.sharedata"
+local uniqueService = require "services.uniqueService"
+local checkDb       = require "db.checkDb"
+local pairs        = pairs
+local type         = type
+local pcall        = pcall
+local tonumber     = tonumber
+local table_insert = table.insert
+local string_sub   = string.sub
+local string_len   = string.len
+local string_upper = string.upper
+local string_lower = string.lower
+local setmetatable = setmetatable
+local getmetatable = getmetatable
+local utils        = require "coredb.com.utils"
+local builder      = require "coredb.com.builder"
+
+
+local handler      = { version = "0.0.1" }
+local mt           = { __index = handler }
+local LAST_SQL     = 'no exist last SQL' -- 全局记录最后执行的sql
+local FIELDS       = {} -- 全局记录表本身的字段信息 { table_name1 = {}, table_name2 = {} }
+local dbconnection 
+
+function handler.execute_sql(self, sql, name)
+
+    if not dbconnection then 
+       dbconnection = uniqueService("db.dbMan")
+    end    
+    local playerId = self.playerId
+    if playerId then
+        self.playerId = nil
+    end    
+    return skynet.call(dbconnection, "lua",  "execute", sql, name, playerId)
+end    
+
+function handler.setPlayerId(self, playerId)
+    self.playerId = playerId
+    return self
+end    
+-- 设置最近1次执行过的sql，全局模式
+local function set_last_sql(sql)
+    LAST_SQL = sql
+end
+
+-- 获取最近1次执行过的sql，全局模式
+local function get_last_sql()
+    return LAST_SQL
+end
+
+local selectSQL    = "SELECT#DISTINCT# #FIELD# FROM #TABLE##JOIN##WHERE##GROUP##HAVING##ORDER##LIMIT##LOCK#"
+local insertSQL    = "#INSERT# INTO #TABLE# (#FIELD#) VALUES (#DATA#)"
+local updateSQL    = "UPDATE #TABLE##JOIN# SET #SET# #WHERE# #ORDER##LIMIT# #LOCK#"
+local deleteSQL    = "DELETE#JOIN_ALIAS#FROM #TABLE##JOIN##WHERE##ORDER##LIMIT# #LOCK#"
+local insertAllSQL = "#INSERT# INTO #TABLE# (#FIELD#) VALUES #DATA#"
+
+-- 内部方法：解析是否distinct唯一
+-- @return string
+local function parseDistinct(self)
+    local distinct = self:getOptions("distinct")
+
+    if not utils.empty(distinct) then
+        return " DISTINCT"
+    end
+
+    return ''
+end
+
+-- 内部方法：解析字段
+-- @return string
+local function parseField(self)
+    local field = self:getOptions('field')
+
+    -- 如果未调用field方法设置字段，则返回通配
+    if utils.empty(field) then
+        return "*"
+    end
+
+    -- 循环处理字段
+    local field_str = ''
+    for _,item in pairs(field) do
+        if item ~= '*' then
+            field_str = field_str .. ',' .. item
+        end
+    end
+
+    return utils.trim(field_str, ',')
+end
+
+-- 内部方法：解析数据表名
+-- @param boolean without_alias 是否忽略别名，默认不忽略
+-- @return string
+local function parseTable(self, without_alias)
+    -- 获取并检测是否设置表
+    local table = self:getOptions("table")
+
+    -- check empty
+    if utils.empty(table) then
+        utils.exception("[table]set table name use 'no_prefix_table' or 'no_prefix_table alias' or 'no_prefix_table as alias'")
+    end
+
+    -- 子查询类型
+    if 3 == #table then
+        -- sub query use virtual table
+        if "SUB_QUERY" == table[3] then
+            return "(" .. table[1] ..") AS " .. utils.set_back_quote(utils.strip_back_quote(table[2]))
+        else
+            -- 需要扩充特定标记，在此添加
+            utils.exception("[table]unsupported table options parameters: " .. (table[3] or "nil"))
+        end
+    end
+
+    -- 全局的表前缀
+    local prefix = ""--self:getSelfConfig("prefix")
+    -- 构造带前缀的表名
+    local _table = utils.set_back_quote(prefix .. utils.strip_back_quote(table[1]))
+
+    -- 参数强制要求无需构造别名返回
+    if not utils.empty(without_alias) then
+        return _table
+    end
+
+    local alias = table[2]
+    -- 如果并未设置别名，或者方法体参数不要求返回别名，则依据是否有join调度
+    if utils.empty(table[2]) then
+        -- no join condition
+        if utils.empty(self:getOptions("join")) then
+            return _table
+        end
+
+        -- in join condition and not exist alias，use table without prefix as alias
+        -- 如果查询处于join环境下，且左表未设置alias，将无前缀的表名称设置为alias
+        -- table[2] = table[1] 的语法会覆盖设置别名，此处仅判断是否join设置一个默认别名
+        alias = table[1]
+    end
+
+    -- 存在别名，且方法体参数要求返回别名，附加别名返回
+    return _table .. " AS " .. utils.set_back_quote(utils.strip_back_quote(alias))
+end
+
+-- 获取表别名，未显式设置别名时使用无前缀的表名称
+-- @return string
+local function _tableAlias(self)
+    -- 获取并检测是否设置表
+    local table = self:getOptions("table")
+
+    -- check empty
+    if utils.empty(table) then
+        utils.exception("[table]set table name use 'no_prefix_table' or 'no_prefix_table alias' or 'no_prefix_table as alias'")
+    end
+
+    -- 如果并未设置别名返回无前缀的表
+    if utils.empty(table[2]) then
+        return table[1]
+    end
+
+    return table[2]
+end
+
+-- 主键字段名称构建查询条件字段，即是否自动添加别名逻辑
+-- @param string pri_key db中读取出的主键名称
+-- @return string 自动依据内部对象构建而成的可传递给where方法的字段名
+local function _buildPkAsWhereField(self, pri_key)
+    local table = self:getOptions("table")
+    local join  = self:getOptions("join")
+
+    -- 未查询到table信息，且不处于join环境
+    if utils.empty(table) and utils.empty(join) then
+        return pri_key
+    end
+
+    -- join环境，需附加表别名
+    if not utils.empty(join) then
+        -- join环境，但未显示设置别名使用无前缀表名
+        if utils.empty(table[2]) then
+            return table[1] .. "." ..pri_key
+        end
+        -- 有设置别名
+        return table[2] .. "." ..pri_key
+    end
+
+    -- 正常情况，是否有别名自动
+    if utils.empty(table[2]) then
+        return pri_key
+    end
+    return table[2] .. "." ..pri_key
+end
+
+-- 按主键值分析构造主键查询条件
+-- @param string|associative_array pri_val 标量值，或主键字段为key标量值为value的复合主键数组值
+local function parsePkWhere(self, pri_val)
+    -- read primary key info,if not exist primary key do not exception
+    local pri_key = self:getPrimaryField()
+    if utils.empty(pri_key) or utils.empty(pri_val) then
+        return
+    end
+
+    -- add primary key
+    if "table" == type(pri_key) then
+        -- for multi complex primary key
+        if "table" ~= type(pri_val) then
+            utils.exception("[parsePkWhere]complex primary key find, please use {key1 = val1, key2 =val2}")
+        end
+
+        -- loop check and collect all multi primary conditions
+        local callable_complex = {}
+        for _, _pri_key in pairs(pri_key) do
+            local _pri_val = pri_val[_pri_key]
+            if nil == _pri_val then
+                utils.exception("[parsePkWhere]complex primary key find, please use {key1 = val1, key2 =val2}")
+            end
+
+            -- auto build pk field
+            _pri_key = _buildPkAsWhereField(self, _pri_key)
+            -- collect complex where as one array
+            callable_complex[_pri_key] = { "=", _pri_val}
+        end
+
+        -- use callable where check and set
+        if utils.empty(callable_complex) then
+            utils.exception("[parsePkWhere]complex primary key find, please use {key1 = val1, key2 =val2}")
+        end
+
+        -- use callable where,add brackets for all complex keys
+        self:where(function (sub_query)
+            sub_query:where(callable_complex)
+        end)
+    else
+        -- for single one primary key
+        if "table" == type(pri_val) then
+            utils.exception("[parsePkWhere]single primary key select auto, need scalar param")
+        end
+
+        self:where(_buildPkAsWhereField(self, pri_key), "=", pri_val)
+    end
+end
+
+-- 构造where内部子句
+-- @param string logic 运算符 AND|OR
+-- @param array  item  字段|条件|查询值
+-- @return string
+local function buildWhereItem(logic, item)
+    local column    = item[1]
+    local operate   = item[2]
+    local condition = item[3]
+
+    if "NULL" == operate then
+        return logic .. " " .. column .. " IS NULL"
+    elseif "NOT NULL" == operate then
+        return logic .. " " .. column .. " IS NOT NULL"
+    elseif "BETWEEN" == operate then
+        return logic .. " (" ..column .. " BETWEEN " .. condition[1] .. " AND " .. condition[2] .. ")"
+    elseif "NOT BETWEEN" == operate then
+        return logic .. " (" ..column .. " NOT BETWEEN " .. condition[1] .. " AND " .. condition[2] .. ")"
+    elseif utils.in_array(operate, {"LIKE", "NOT LIKE"}) then
+        return logic .. " " .. column .. " " .. operate .. " " .. condition
+    elseif utils.in_array(operate, {"IN", "NOT IN"}) then
+        return logic .. " " .. column .. " " .. operate .. " (" .. utils.implode(",", condition) .. ")"
+    else
+        return logic .. " " .. column .. operate .. condition
+    end
+end
+
+-- 内部方法：构造where条件
+-- @return string
+local function buildWhere(this)
+    local where_str = ''
+    local where     = this:getOptions("where")
+
+    -- 未曾设置任何where条件返回空字符串
+    if utils.empty(where) then
+        return ""
+    end
+
+    -- 循环处理条件
+    for logic,list in pairs(where) do
+        local where_arr = {}
+
+        -- where内层循环
+        for _,item in pairs(list) do
+            if "string" == type(item) then
+                -- exp原始值类型解析，字面量原始值类型
+                -- 可使用 utils.db_bind_value 执行值绑定，而不是直接拼接，以防止注入风险
+                table_insert(where_arr, logic .. " " .. item)
+            elseif "function" == type(item) then
+                -- +++++++++++++++++++++++++++++++++++++++
+                -- +++++++++++++++++++++++++++++++++++++++
+                -- 回调函数闭包类型 解析
+                local sub_query = this:new(this:getSelfConfig()) -- 实例化一个新query，使用对象级别的config
+
+                -- 保护模式执行回调函数，执行完毕sub_query对象将包含闭包条件
+                local is_ok,_ = pcall(item, sub_query)
+                if is_ok then
+                    local sub_where = logic .. " ( " .. buildWhere(sub_query) .. ")" -- 闭包加入括号包裹
+                    table_insert(where_arr, sub_where)
+                else
+                    utils.exception("[where]callable execute error, please use corrected method and param")
+                end
+                -- +++++++++++++++++++++++++++++++++++++++
+                -- +++++++++++++++++++++++++++++++++++++++
+            elseif "table" == type(item) then
+                -- 字段、条件、值 类型解析
+                table_insert(where_arr, buildWhereItem(logic, item))
+            end
+        end
+
+        -- 构造多个条件
+        if utils.empty(where_str) then
+            where_str = utils.implode(" ", where_arr)
+            -- 截取掉字符串开头的逻辑符号，逻辑运算符号长度加1个空格，注意下标从1开始
+            where_str = string_sub(where_str, string_len(logic) + 2, string_len(where_str))
+        else
+            where_str = where_str .. " " .. utils.implode(" ", where_arr)
+        end
+    end
+
+    return where_str
+end
+
+-- 内部方法：解析where条件
+-- @return string
+local function parseWhere(self)
+    local where = buildWhere(self)
+
+    if utils.empty(where) then
+        return ""
+    end
+
+    return " WHERE " .. where
+end
+
+-- 内部方法：解析data方法设置的数据
+-- @param array data_set  可额外传入仅处理该数据
+-- @return array {field = 'value', field2 = value} or {{},{}}
+local function parseData(self, data_set)
+    local data = data_set or self:getOptions("data")
+
+    -- 未设置任何数据，返回空数组，由调用方处理
+    if utils.empty(data) then
+        return {}
+    end
+
+    -- 循环处理关联数组成索引数组
+    local _data = {}
+
+    -- deal
+    for key,val in pairs(data) do
+        -- 键名称为字符串，依据值类型处理
+        if "string" == type(key) then
+            -- 处理字段
+            key = utils.set_back_quote(utils.strip_back_quote(key))
+
+            -- 处理值
+            if nil == val then
+                -- null
+                _data[key] = "NULL" -- 直接NULL字符串本身，无需携带引号
+            elseif "table" == type(val) then
+                -- 数组值，实现一些特定需求，{"INC", 1}、{"DEC", 1}
+                if 2 == #val then
+                    if val[1] == "INC" then
+                        -- 自增字段需求
+                        _data[key] = key .. " + " .. tonumber(val[2] or 1)
+                    elseif val[1] == "DEC" then
+                        -- 自减字段需求
+                        _data[key] = key .. " - " .. tonumber(val[2] or 1)
+                    else
+                        -- 需要扩展在此添加
+                    end
+                else
+                    utils.exception("[data]not support operator in data " .. val[1])
+                end
+            else
+                -- 值类型，处理值
+                _data[key] = utils.quote_value(val)
+            end
+        end
+
+        -- 键名为数字，设置批量数据情况直接返回
+        if "number" == type(key) then
+            return data
+        end
+    end
+
+    return _data
+end
+
+-- 解析join关联表
+-- @return string
+local function parseJoin(self)
+    local join = self:getOptions("join")
+
+    -- 没有join语句
+    if utils.empty(join) then
+        return ''
+    end
+
+    -- 多个join的情况
+    local join_arr = {}
+    for _,item in pairs(join) do
+        -- {{{"table_without_prefix", "alias"}, "type", "condition"}}
+
+        -- 处理完整表名称和别名
+        local join_table_full  = utils.set_back_quote(utils.strip_back_quote(self._config.prefix .. item[1][1]))
+        local join_table_alias = utils.set_back_quote(utils.strip_back_quote(item[1][2]))
+
+        -- concat
+        local join_str = item[2] .. " JOIN " .. join_table_full .. " AS " .. join_table_alias .. " ON " .. item[3]
+
+        table_insert(join_arr, join_str)
+    end
+
+    return " " .. utils.implode(" ", join_arr)
+end
+
+-- 内部方法：解析group分组
+-- @return string
+local function parseGroup(self)
+    local group = self:getOptions("group")
+
+    if utils.empty(group) then
+        return ''
+    end
+
+    return " GROUP BY " .. group
+end
+
+-- 内部方法：解析group分组搭配的having条件
+-- @return string
+local function parseHaving(self)
+    local having = self:getOptions("having")
+
+    if utils.empty(having) then
+        return ''
+    end
+
+    return " HAVING " .. having
+end
+
+-- 内部方法：解析order排序条件
+-- @return string
+local function parseOrder(self)
+    local order = self:getOptions('order')
+
+    if utils.empty(order) then
+        return ''
+    end
+
+    local order_str = ' ORDER BY '
+    for _,item in pairs(order) do
+        order_str = order_str .. item[1] .. " " ..item[2] .. ","
+    end
+
+    return utils.rtrim(order_str, ",")
+end
+
+-- 内部方法：解析limit限定条件
+-- @return string
+local function parseLimit(self)
+    local limit = self:getOptions("limit")
+
+    if utils.empty(limit) then
+        return ''
+    end
+
+    return " LIMIT " .. limit .. " "
+end
+
+-- 内部方法：解析加锁
+-- @return string
+local function parseLock(self)
+    local lock = self:getOptions("lock")
+
+    if utils.empty(lock) then
+        return ''
+    end
+
+    return " " .. lock .. " "
+end
+
+-- 内部方法，获取数据表字段新
+-- @return array
+local function autoGetFields(self)
+    -- get table without alias
+    local table = parseTable(self, true)
+
+    -- check
+    if utils.empty(table) then
+        utils.exception("[getFields]please set table name at first when get all this table fields info")
+    end
+
+    -- 已处理过，直接使用
+    if not utils.empty(FIELDS[table]) then
+        return FIELDS[table]
+    end
+
+    -- execute sql get fields info
+    local sql = "SHOW COLUMNS FROM " .. table
+
+    -- fetch MySQL server return result
+    local result = execute_sql(sql)
+
+    -- deal structure
+    local fields = { fields = {}, primary = {} }
+    local info   = {}
+    for _, val in pairs(result) do
+        local _name  = val.Field
+
+        -- 设置主键
+        if val.Key == "PRI" then
+            -- perhaps complex multi primary
+            table_insert(fields.primary, _name)
+        end
+
+        -- 设置每个字段详情
+        info[_name] = {
+            primary        = "PRI" == val.Key, -- boolean 是否为主键
+            type           = val.Type,
+            default        = val.Default,
+            not_null       = "NO" == val.Null, -- boolean 是否能为null
+            auto_increment = "auto_increment" == val.Extra, -- boolean 是否自增
+        }
+    end
+
+    --[[
+    -- 存储结构
+    {
+        primary = "id", -- 该表的主键
+        fields  = {
+            id = {
+                type = "int(11)", -- 字段类型
+                not_null = true, -- 是否允许为null
+                default = "", -- 默认值
+                primary = false, -- 是否主键
+                auto_increment = false -- 是否自增键
+            } -- 该表每个字段的信息
+        },
+    }
+    -]]
+    fields.fields = info
+
+    -- set to local variable
+    FIELDS[table] = fields
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    return fields
+end
+
+-- 初始化方法，类似构造函数
+-- 启用ngx.ctx特性，保证同一个request周期内被执行的代码一直使用同一个底层mysql连接
+-- 若需在同1个request生命周期内启用多个底层mysql连接，使用对象实例的newConnection方法生成新连接，再通过setConnection设置进去
+-- @param array config 初始化传入配置数组参数，数组结构参照上方 options.config
+function handler.new()
+    local build    = builder:new()
+    local superhandlert = getmetatable(build)
+
+    -- 当方法在子类中查询不到时，可以再去父类中去查找。
+    setmetatable(handler, superhandlert)
+
+    return setmetatable(build, mt)
+end
+
+-- 构造1个新的query对象并且底层重新新建mysql连接
+function handler.newQueryWithNewConnection(self)
+    local query = self:new()
+    query.connection = {
+
+        startTrans = function () execute_sql("START TRANSACTION;", "__TRANSACTION__") end,
+        rollback   = function () execute_sql("ROLLBACK;", "__TRANSACTION__") end,
+        commit     = function () execute_sql("COMMIT;", "__TRANSACTION__") end,
+
+    }
+    return query
+end
+
+-- name方法隐含实例化过程，可直接 query:name(table_name)完成新query对象的生成
+-- @param string table 不带前缀的数据表名称
+function handler.name(self, table)
+    
+    return self:new():table(table)
+end
+
+-- 克隆方法，即将当前对象各属性保留生成1个新对象，内部options等信息保留
+-- 与new方法、name方法的区别在于，保不保留内部options选项
+function handler.clone(self)
+    local new_query = self:new()
+
+    -- obtain origin options
+    new_query:setOptions(self:getOptions())
+
+    return new_query
+end
+
+-- 重置query对象的内部选项值
+-- removeOptions方法的别名，避免removeOptions引起的歧义误解
+function handler.reset(self)
+    return self:removeOptions()
+end
+
+-- 显式执行Db关闭连接
+function handler.close(self)
+    assert("db connection do not need close.")
+end
+
+-- 闭包方法内安全执行事务，方法体内部自动构造新底层连接执行事务
+-- @param function callable 被执行的回调函数，回调函数的参数为1个query对象
+-- @return boolean, callable result 返回两个值，第一个值布尔值标记事务执行成功与否，第二值为回调函数执行后的返回值
+function handler.transaction(self, callable)
+    -- create a new query with a new connection
+    local query = self:newQueryWithNewConnection()
+
+    -- if self ready set table, set it in new query
+    local table = self:getOptions("table")
+    if not utils.empty(table) then
+        query:setOptions("table", table)
+    end
+
+    -- beginTransaction
+    query.connection:startTrans()
+
+    -- protected pcall run callable
+    local ok,result = pcall(callable, query)
+
+    -- check if there has an error
+    if not ok then
+        -- error occur and rollback
+        query.connection:rollback()
+    else
+        -- no error occur and commit
+        query.connection:commit()
+    end
+
+    -- destroy this query and release db connection to co-socket pool
+    query = nil
+
+    return not (not ok), result
+end
+
+-- 开始1个事务
+-- @return boolean
+function handler.startTrans(self)
+    -- 底层connection发送事务开始标记
+    return self.connection:startTrans()
+end
+
+-- commit提交1个事务
+-- @return boolean
+function handler.commit(self)
+    -- 底层connection发送事务提交标记
+    return self.connection:commit()
+end
+
+-- rollback回滚1个事务
+-- @return boolean
+function handler.rollback(self)
+    -- 底层connection发送事务回滚标记
+    return self.connection:rollback()
+end
+
+-- 构建select的sql语句
+-- @param string
+local function buildSelect(self)
+    local sql = utils.str_replace(
+            {
+                "#TABLE#",
+                "#DISTINCT#",
+                "#FIELD#",
+                "#JOIN#",
+                "#WHERE#",
+                "#GROUP#",
+                "#HAVING#",
+                "#ORDER#",
+                "#LIMIT#",
+                "#LOCK#"
+            },
+            {
+                parseTable(self),
+                parseDistinct(self),
+                parseField(self),
+                parseJoin(self),
+                parseWhere(self),
+                parseGroup(self),
+                parseHaving(self),
+                parseOrder(self),
+                parseLimit(self),
+                parseLock(self),
+            },
+            selectSQL
+    )
+
+    return utils.rtrim(sql)
+end
+
+-- 构建update的sql语句
+-- @param string
+local function buildUpdate(self)
+    -- 未设置where条件，不允许执行
+    local where = self:getOptions("where")
+    if utils.empty(where.OR) and utils.empty(where.AND) then
+        utils.exception("[delete]execute update SQL must be set where condition")
+    end
+
+    -- has join statement
+    -- 多表update不支持order和limit ：https://dev.mysql.com/doc/refman/5.7/en/update.html
+    -- cannot use ORDER BY or LIMIT with a multiple-table UPDATE
+    local join = self:getOptions("join")
+    if not utils.empty(join) then
+        self:removeOptions("order")
+        self:removeOptions("limit")
+    end
+
+    -- deal update data
+    local data     = parseData(self)
+    local data_set = {}
+    for key,val in pairs(data) do
+        table_insert(data_set, key .. " = " .. val)
+    end
+
+    local sql = utils.str_replace(
+            {
+                "#TABLE#",
+                "#SET#",
+                "#JOIN#",
+                "#WHERE#",
+                "#ORDER#",
+                "#LIMIT#",
+                "#LOCK#"
+            },
+            {
+                parseTable(self),
+                utils.implode(" , ", data_set),
+                parseJoin(self),
+                parseWhere(self),
+                parseOrder(self),
+                parseLimit(self),
+                parseLock(self),
+            },
+            updateSQL
+    )
+
+    return utils.rtrim(sql)
+end
+
+-- 构建insert的sql语句
+-- @param string
+local function buildInsert(self, is_replace)
+    -- 获取要新增的数据
+    local data = parseData(self)
+
+    -- 没有数据集对象
+    if utils.empty(data) then
+        utils.exception("[insert]please use data method or insert method set insert data")
+    end
+
+    -- 依据replace条件调度新增语句的方式
+    --if is_replace then
+    --    is_replace = "REPLACE"
+    --else
+    --    is_replace = "INSERT"
+    --end
+    --强制replace
+    is_replace = "REPLACE"
+    -- 处理键值对
+    local fields = utils.array_keys(data)
+    local values = utils.array_values(data)
+    local sql = utils.str_replace(
+            {
+                "#INSERT#",
+                "#TABLE#",
+                "#FIELD#",
+                "#DATA#"
+            },
+            {
+                is_replace,
+                parseTable(self),
+                utils.implode(" , ", fields),
+                utils.implode(" , ", values)
+            },
+            insertSQL
+    )
+    return utils.rtrim(sql)
+end
+
+-- 构造批量insert语句
+-- @param boolean is_replace mysql特有REPLACE方式插入数据
+-- @return string
+local function buildInsertAll(self, is_replace)
+    -- get origin multi data
+    local data = parseData(self)
+
+    -- check origin multi data
+    if utils.empty(data) then
+        utils.exception("[insertAll]please use insertAll method first param set insert data list")
+    end
+
+    -- 依据replace条件调度新增语句的方式
+    --if is_replace then
+    --    is_replace = "REPLACE"
+    --else
+    --    is_replace = "INSERT"
+    --end
+    --强制replace
+    is_replace = "REPLACE"
+    -- deal multi data
+    local fields = {}
+    local values = {}
+    for index,val in pairs(data) do
+        if "number" ~= type(index) or "table" ~= type(val) then
+            utils.exception("[insertAll]multi insert data structure error")
+        end
+
+        -- parse two level data
+        local item  = parseData(self, val) -- one item data
+        local value = utils.array_values(item) -- one item value
+
+        -- set multi insert fields
+        if utils.empty(fields) then
+            fields = utils.array_keys(item)
+        else
+            -- 检查字段长度和值长度是否一致
+            if utils.array_count(item) ~= #value then
+                utils.exception("[insertAll]data fields count not equal values count at " .. index)
+            end
+        end
+
+        -- set multi value item
+        table_insert(values, "( " .. utils.implode(",", value) .. " )")
+    end
+
+    local sql = utils.str_replace(
+            {
+                "#INSERT#",
+                "#TABLE#",
+                "#FIELD#",
+                "#DATA#",
+            },
+            {
+                is_replace,
+                parseTable(self),
+                utils.implode(" , ", fields),
+                utils.implode(" , ", values)
+            },
+            insertAllSQL
+    )
+
+    return utils.rtrim(sql)
+end
+
+-- 构建delete的sql语句
+-- @param string
+local function buildDelete(self)
+    -- 未设置where条件，不允许执行
+    local where = self:getOptions("where")
+    if utils.empty(where.OR) and utils.empty(where.AND) then
+        utils.exception("[delete]execute delete SQL must be set where condition")
+    end
+
+    -- join删除有关 https://dev.mysql.com/doc/refman/5.7/en/delete.html
+    -- 1、若join形式使用delete方法，默认构造成join的多张表记录都删除
+    -- 2、join时不支持order和limit子句
+    local join = self:getOptions("join")
+
+    -- perhaps delete join table alias
+    local join_alias = " "
+
+    -- has join statement
+    if not utils.empty(join) then
+        -- can not use ORDER BY or LIMIT in a multiple-table DELETE
+        self:removeOptions("order")
+        self:removeOptions("limit")
+
+        -- get table alias
+        join_alias = _tableAlias(self)
+        -- get all join alias
+        for _,val in pairs(join) do
+            join_alias = join_alias .. "," .. val[1][2]
+        end
+        join_alias = " " .. join_alias .. " "
+    end
+
+    local sql = utils.str_replace(
+            {
+                "#TABLE#",
+                '#JOIN_ALIAS#',
+                "#JOIN#",
+                "#WHERE#",
+                "#ORDER#",
+                "#LIMIT#",
+                "#LOCK#"
+            },
+            {
+                parseTable(self),
+                join_alias,
+                parseJoin(self),
+                parseWhere(self),
+                parseOrder(self),
+                parseLimit(self),
+                parseLock(self),
+            },
+            deleteSQL
+    )
+
+    return utils.rtrim(sql)
+end
+
+-- 构建count查询的sql语句
+-- @param field string count查询的字段名称
+-- @param string
+local function buildCount(self, field)
+    -- group分组查询情况进行子查询处理
+    if not utils.empty(self:getOptions("group")) then
+        local sub_query = self:clone() -- 克隆1份对象方法
+        local sub_sql   = buildSelect(sub_query) -- 构造group子查询sql
+
+        -- 调用table放的数组参数形式设置子查询和别名
+        self:table({ sub_sql, "_resty_query_group_count_" })
+
+        -- reset group and field
+        field = ""
+
+        -- clear self do no used options
+        self:removeOptions("group")
+        self:removeOptions("where")
+        self:removeOptions("order")
+        self:removeOptions("limit")
+    end
+
+    -- parse count field
+    local count_field
+    if not utils.empty(field) then
+        count_field = utils.set_back_quote(utils.strip_back_quote(field))
+        count_field = "count(" .. count_field .. ") AS `resty_query_count`"
+    else
+        count_field = "count(*) AS `resty_query_count`"
+    end
+
+    -- clear field that may exist
+    self:removeOptions("field")
+
+    -- set limit param 1
+    self:limit(1)
+
+    -- set count raw field
+    self:fieldRaw(count_field)
+
+    return buildSelect(self)
+end
+
+-- 构建aggregate聚合查询的sql语句
+-- @param string aggregate aggregate聚合查询类型枚举值：sum、max、min、avg
+-- @param string field     aggregate聚合查询的字段名称
+-- @param string
+function buildAggregate(self, aggregate, field)
+    -- distinct support
+    local distinct = ''
+    if self:getOptions("distinct") then
+        distinct = 'DISTINCT '
+    end
+
+    -- only one result
+    self:setOptions("limit", 1)
+
+    -- remove other field set
+    self:removeOptions("field")
+
+    -- aggregate field alias name
+    local alias = "resty_query_" .. string_lower(aggregate)
+
+    -- aggregate function name
+    aggregate = string_upper(aggregate)
+
+    -- parse simple field
+    if "string" == type(field) then
+        local aggregate_field
+        aggregate_field = utils.set_back_quote(utils.strip_back_quote(field))
+        aggregate_field = aggregate .. "(" .. distinct .. aggregate_field .. ") AS `" .. alias .. "`"
+
+        -- set aggregate raw field
+        self:fieldRaw(aggregate_field)
+    else
+        utils.exception("[" .. string_lower(aggregate) .. "]only support simple string field name in aggregate")
+    end
+
+    return buildSelect(self)
+end
+
+-- 生成拟执行的sql语句而不是执行
+-- @param boolean is_fetch 是否不执行sql，而是返回拟执行的sql，默认true
+function handler.fetchSql(self, is_fetch)
+    -- nil即未设置参数或true则底层记录true
+    -- 显示false或其他等价empty情况底层记录false
+    if not utils.empty(is_fetch) or is_fetch == nil then
+        is_fetch = true
+    else
+        is_fetch = false
+    end
+
+    -- set
+    self:setOptions("fetch_sql", is_fetch)
+
+    return self
+end
+
+-- 获取最近执行过的最后1次的sql
+function handler.getLastSql(_)
+    return get_last_sql()
+end
+
+-- 获取数据表的字段信息数组
+-- @return array 以字段名称作为下标的关联数组
+function handler.getFields(self)
+    --[[
+    -- 返回值结构
+    {
+        id = {
+            type = "int(11)", -- 字段类型
+            not_null = true, -- 是否允许为null
+            default = "", -- 默认值
+            primary = false, -- 是否主键
+            auto_increment = false -- 是否自增键
+        } -- 该表每个字段的信息
+    }
+    -]]
+    return autoGetFields(self).fields
+end
+
+-- 获取数据表的主键字段
+-- @return string|array 主键字段名称，若未设置主键字段则返回空字符串，复合主键则返回数组
+function handler.getPrimaryField(self)
+    local primary = autoGetFields(self).primary
+
+    -- not exist primary
+    if utils.empty(primary) then
+        return ''
+    end
+
+    -- only one primary, return string
+    if 1 == #primary then
+        return primary[1]
+    end
+
+    -- complex primary key, return array
+    return primary
+end
+
+function handler.getTableName(self)
+
+    local option = self:getOptions("table", true)
+    return option[1]
+end    
+
+-- 执行单条数据新增
+-- @param array   data 可以通过insert第一个参数设置要信息的key-value值对象，会覆盖由data设置的值
+-- @param boolean is_replace 是否使用REPLACE语句执行新增，默认否
+-- @return number|nil 方法添加数据成功返回添加成功的条数，通常情况返回1，失败或异常返回nil
+function handler.insert(self, data, is_replace)
+    -- insert第一个参数传入要insert的键值对，执行设置data
+    if "table" == type(data) then
+        self:data(data)
+    end
+    -- build insert sql
+    local sql = buildInsert(self, is_replace)
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    local name = self:getTableName()
+    -- remove all setOptions
+    self:removeOptions()
+    -- record last SQL
+    set_last_sql(sql)
+    -- fetch MySQL server execute result info
+    return self:execute_sql(sql, name)
+end
+
+-- 构造批量insert语句
+-- @param array data 批量插入语句的数组，二维数组
+-- @param boolean is_replace mysql特有REPLACE方式插入数据
+-- @return number 返回插入的总条数
+function handler.insertAll(self, data, is_replace)
+    -- set multi data
+    if not utils.empty(data) then
+        self:data(data)
+    end
+
+    -- build insert sql
+    local sql = buildInsertAll(self, is_replace)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+    local name = self:getTableName()
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- self.connection:destruct()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    -- fetch MySQL server execute result info
+    return self:execute_sql(sql, name)
+end
+
+-- 执行单条查询，find唯一的可选参数仅支持主键查询，底层自动获取主键，传入主键值即可
+-- @return string|number|associative_array pri_val 可选的按主键快捷查询的主键单个值，或复合主键为key，值为value的数组
+-- @return array|nil 查找到返回一维数组，查找不到返回nil
+function handler.find(self, pri_val)
+    -- 查找1条，强制覆盖limit条件为1条
+    self:setOptions("limit", 1);
+
+    -- 如果有传值，则当做主键查询，支持复合主键
+    if not utils.empty(pri_val) then
+        -- parse primary key where auto, support join alias
+        parsePkWhere(self, pri_val)
+    end
+
+    -- 生成查找1条的sql
+    local sql = buildSelect(self)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    -- 清理方法体强制设置的limit条件
+    self:removeOptions("limit")
+
+    -- fetch MySQL server return result
+    local result = self:execute_sql(sql)
+
+    local name = self:getTableName()
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    -- self.connection:destruct()
+    -- 不为空返回第一个值，为空则返回nil
+    local data = result[1]
+    return self.autoData(self, data, name)
+end
+
+-- 执行多条查询，select支持通过参数设置查询条件，仅支持通过where方法设置
+-- @return array|nil 查找到返回二维数组，查找不到返回nil
+function handler.select(self)
+    -- build select SQL
+    local sql = buildSelect(self)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+    local name = self:getTableName()
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    local result = {}
+
+
+    -- fetch MySQL server return result
+    local data = self:execute_sql(sql)
+    for _, item in pairs(data or {}) do
+
+        local r = self.autoData(self, item, name)
+        table_insert(result, r)
+    end   
+
+    return result 
+end
+
+function handler.autoData(self, data, name)
+
+    if not data then return nil end
+    assert(name)
+    return checkDb:new(name):checkLoad(data)
+end    
+
+-- 执行分页查询
+-- @param integer page 当前页码，不传或传nil则自动从http变量名中读取，变量名称配置文件配置
+-- @param integer page_size 一页多少条数据，不传或传nil则自动从分页配置中读取
+-- @param boolean is_complex 是否复杂模式，不传则默认为简单模式 【复杂模式则返回值自动获取总记录数，简单模式则不获取总记录数】
+-- @return array {list = {}, page = 1, page_size = 10, total = 10}
+function handler.paginate(self, page, page_size, is_complex)
+    -- set page param
+    if not utils.empty(page) then
+        self:page(page, page_size)
+    end
+
+    -- checkout is set page options,use the default first page and use setting page_size
+    if utils.empty(self:getOptions("page")) then
+        self:page(1, page_size)
+    end
+
+    -- get page options variable
+    local page_set = self:getOptions("page")
+
+    -- build select SQL
+    local sql = buildSelect(self)
+
+    -- result structure
+    local result = {
+        list       = {}, -- 分页数据列表
+        page       = page_set[1], -- 当前页码
+        page_size  = page_set[2], -- 当前设置项目中的1页多少条
+        total      = false, -- 依据is_complex参数是否返回分页的总数
+    }
+
+    -- complex model，execute the count
+    if not utils.empty(is_complex) then
+        -- 构造总数查询的sql，最终执行时一次性发送2条sql
+        sql = sql .. ";" .. buildCount(self)
+    end
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    -- fetch now page list result
+    for key,val in self:execute_sql(sql) do
+        if 1 == key then
+            result.list = val
+        end
+        if 2 == key then
+            result.total = tonumber(val[1].resty_query_count or 0) -- 如果有查询总记录数，取出总记录数
+        end
+    end
+
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    return result
+end
+
+-- count查询总数，底层自动支持group子句
+-- @param string field 需要计数的字段，可选参数，留空则count总行数
+-- @return number 返回大于等于0的整数
+function handler.count(self, field)
+    -- build count select sql, support group sql statement
+    local sql = buildCount(self, field)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    -- fetch one result
+    local result = self:execute_sql(sql)
+
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    -- convert to number
+    return tonumber(result[1]["resty_query_count"] or 0)
+end
+
+-- sum查询
+-- @param string field 需要sum的字段
+-- @return number 返回大于等于0的整数
+function handler.sum(self, field)
+    -- check field
+    if utils.empty(field) then
+        utils.exception("[sum]field use 'filed_name' or 'table.filed_name' or 'table.filed_name as alias'")
+    end
+
+    -- build sum sql
+    local sql = buildAggregate(self, "sum", field)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    -- fetch one result
+    local result = self:execute_sql(sql)
+
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    -- convert to number
+    return tonumber(result[1]["resty_query_sum"] or 0)
+end
+
+-- max查询
+-- @param string  field     需要max的字段
+-- @param boolean is_number max的值是否为数字，默认当做数字处理，不当数字处理传值false
+-- @return number|string    返回大于等于0的整数或字符串值
+function handler.max(self, field, is_number)
+    -- check field
+    if utils.empty(field) then
+        utils.exception("[max]field use 'filed_name' or 'table.filed_name' or 'table.filed_name as alias'")
+    end
+
+    -- build max sql
+    local sql = buildAggregate(self, "max", field)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    -- fetch one result
+    local result = self:execute_sql(sql)
+
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    -- do not convert
+    if false == is_number then
+        return result[1]["resty_queryhandlerax"] or 0
+    end
+
+    -- convert to number
+    return tonumber(result[1]["resty_queryhandlerax"] or 0)
+end
+
+-- min查询
+-- @param string  field     需要min的字段
+-- @param boolean is_number min的值是否为数字，默认当做数字处理，不当数字处理传值false
+-- @return number|string    返回大等于0的整数或字符串值
+function handler.min(self, field, is_number)
+    -- check field
+    if utils.empty(field) then
+        utils.exception("[min]field use 'filed_name' or 'table.filed_name' or 'table.filed_name as alias'")
+    end
+
+    -- build min sql
+    local sql = buildAggregate(self, "min", field)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    -- fetch one result
+    local result = self:execute_sql(sql)
+
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    -- do not convert
+    if false == is_number then
+        return result[1]["resty_queryhandlerin"] or 0
+    end
+
+    -- convert to number
+    return tonumber(result[1]["resty_queryhandlerin"] or 0)
+end
+
+-- avg查询
+-- @param string field 需要avg的字段
+-- @return number 返回大于等于0的整数
+function handler.avg(self, field)
+    -- check field
+    if utils.empty(field) then
+        utils.exception("[avg]field use 'filed_name' or 'table.filed_name' or 'table.filed_name as alias'")
+    end
+
+    -- build avg sql
+    local sql = buildAggregate(self, "avg", field)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    -- fetch one result
+    local result = self:execute_sql(sql)
+
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    -- convert to number
+    return tonumber(result[1]["resty_query_avg"] or 0)
+end
+
+-- 执行更新操作
+-- @param array   data 设置需要更新数据的键值对
+-- @return number|nil 执行更新成功返回update影响的行数，执行失败返回nil
+function handler.update(self, data)
+    -- 如果有设置更新数据的键值对，则设置键值对
+    if "table" == type(data) then
+        self:data(data)
+    end
+
+    -- build update SQL
+    local sql = buildUpdate(self)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+    local name = self:getTableName()
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+    return self:execute_sql(sql, name)
+end
+
+-- 设置某个字段的值，即仅更新指定条件下的某个字段的值
+-- @param string|array field 拟更新的字段，或则拟更新的键值对关联数组
+-- @param number step  需要更新的值
+-- @return number|nil  执行更新成功返回影响的行数，执行失败返回nil
+function handler.setField(self, field, val)
+    -- clear may exist data
+    self:removeOptions("data")
+
+    -- set data
+    if "table" == type(field) then
+        self:data(field)
+    else
+        self:data(field, val)
+    end
+
+    return self:update()
+end
+
+-- 按步幅增加某个字段值
+-- @param string|array field 需要自增的字段，或多个递增的字段作为键自增步幅为值的数组
+-- @param number step  需要自增的步幅，默认自增1
+-- @return number|nil  执行更新成功返回影响的行数，执行失败返回nil
+function handler.increment(self, field, step)
+    -- 步幅默认1
+    step = step or 1
+
+    -- clear may exist data
+    self:removeOptions("data")
+
+    -- set data
+    if "table" == type(field) then
+        for column,bump in pairs(field) do
+            if "string" ~= type(column) then
+                utils.exception("[increment]increment multi field first param need associative array")
+            end
+            bump = bump or 1
+            self:data(column, {"INC", tonumber(bump)})
+        end
+    else
+        self:data(field, {"INC", tonumber(step)})
+    end
+
+    return self.update(self)
+end
+
+-- 按步幅减少某个字段值
+-- @param string|array field 需要自减的字段，或多个递减的字段作为键自减步幅为值的数组
+-- @param number step  需要自减的步幅，默认自增1
+-- @return number|nil  执行更新成功返回影响的行数，执行失败返回nil
+function handler.decrement(self, field, step)
+    -- 步幅默认1
+    step = step or 1
+
+    -- clear may exist data
+    self:removeOptions("data")
+
+    -- set data
+    if "table" == type(field) then
+        for column,bump in pairs(field) do
+            if "string" ~= type(column) then
+                utils.exception("[increment]increment multi field first param need associative array")
+            end
+            bump = bump or 1
+            self:data(column, {"DEC", tonumber(bump)})
+        end
+    else
+        self:data(field, {"DEC", tonumber(step)})
+    end
+
+    return self.update(self)
+end
+
+-- 执行删除操作，可设置标量值参数按单个主键删除，或复合主键字段为key，标量值为value的数组值按复合主键删除
+-- 1、若join形式使用delete方法，默认构造成join的多张表记录都删除
+-- 2、join时不支持order和limit子句，底层会静默忽略设置的order和limit条件
+-- @return string|number|associative_array pri_val 可选的按主键快捷删除的主键单个值，或复合主键为key，值为value的数组
+-- @return number|nil 执行更新成功返回删除影响的行数，执行失败返回nil
+function handler.delete(self, pri_val)
+    -- 如果有传值，则当做主键删除条件，支持复合主键
+    if not utils.empty(pri_val) then
+        -- parse primary key where auto, support join alias
+        parsePkWhere(self, pri_val)
+    end
+
+    -- build delete SQL
+    local sql = buildDelete(self)
+
+    -- not execute sql, rather than return string of SQL
+    if self:getOptions("fetch_sql") then
+        return sql
+    end
+
+    local name = self:getTableName()
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+
+    return self:execute_sql(sql, name)
+end
+
+-- 执行原生sql的查询
+-- @param string sql   SQL语句
+-- @param array  binds 可选的参数绑定，SQL语句中的问号(?)依次使用该数组参数替换
+-- @return array
+function handler.query(self, sql, binds)
+    -- check
+    if utils.empty(sql) then
+        utils.exception("[query]please set execute SQL statement use first param")
+        return nil
+    end
+
+    -- bind
+    if not utils.empty(binds) and "table" == type(binds) then
+        sql = utils.db_bind_value(sql, binds)
+    end
+
+    -- fetch more result use iterator
+    local result = self:execute_sql(sql, "__origin__")
+
+    -- remove all setOptions
+    self:removeOptions()
+
+    -- record last SQL
+    set_last_sql(sql)
+
+
+    -- if just one statement return level one
+    if 1 == #result then
+        return result[1]
+    end
+
+    return result
+end
+
+-- 可链式调用对象
+return handler

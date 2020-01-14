@@ -1,0 +1,2 @@
+loginmaster = "127.0.0.1:8765"
+masterserver = "0.0.0.0:7766"

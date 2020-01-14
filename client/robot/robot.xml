@@ -1,0 +1,1440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root><!--errorcode中actorId -1代表会继续随机发协议 0代表不被预期的结果报错 整数代表下一次actor行为处理-->
+	<actor>
+		<item id="1" input="addstone 10000000" type="1"/><!--增加钻石-->
+		<item id="2" input="addgoldcoin 10000000" type="1"/><!--增加金币-->
+		<item id="3" input="addcardsoul 10000000" type="1"/><!--增加将魂-->
+		<item id="4" input="addgodsoul 10000000" type="1"/><!--增加神魂-->	
+		<item id="5" input="additem 15000004 10000" type="1"/><!--增加培养丹-->
+		<item id="6" input="additem 15000001 100000" type="1"/><!--增加突破石-->
+		<item id="7" input="additem 15000002 10000" type="1"/><!--增加觉醒丹-->
+		<item id="8" input="additem 15000003 100000" type="1"/><!--增加天命石-->
+		<item id="9" input="additem 15000005 10000" type="1"/><!--增加讨伐令-->
+		<item id="10" input="additem 15000006 10000" type="1"/><!--增加体力丹-->
+		<item id="11" input="additem 15000007 10000" type="1"/><!--增加精力丹-->		
+		<item id="12" input="addexp 1000000" type="1"/><!--增加经验-->	
+		<item id="13" input="additem 14105003 1" type="1"/><!--增加温丽·洛克贝尔-->	
+		<item id="14" input="additem 14105004 1" type="1"/><!--增加阿尔冯斯·艾尔利克-->	
+		<item id="15" input="additem 14105005 1" type="1"/><!--增加特丽莎·艾尔利克-->	
+		<item id="16" input="additem 14105006 1" type="1"/><!--增加席古·卡迪斯-->	
+		<item id="17" input="additem 14105007 1" type="1"/><!--增加斯卡-->	
+		<item id="18" input="additem 14105008 1" type="1"/><!--增加张梅-->	
+		<item id="19" input="adddevote 10000" type="1"/><!--增加贡献-->	
+		<!--item id="19" input="additem_allawake" type="2" param="15051001-15057009"/--><!--增加所有觉醒道具-->	
+		<item id="20" input="addexp 100000" type="1"/><!--增加100000点经验-->	
+		<item id="21" input="additem_treasurePiece" type="2" param="15020001-15020079"/><!--增加所有宝物1碎片-->
+		<item id="22" input="additem_allawake" type="2" param="15051001-15051012"/><!--color 1 觉醒道具-->
+		<item id="23" input="additem_allawake" type="2" param="15052001-15052012"/><!--color 2 觉醒道具-->
+		<item id="24" input="additem_allawake" type="2" param="15053001-15053009"/><!--color 3 觉醒道具-->
+		<item id="25" input="additem_allawake" type="2" param="15054001-15054009"/><!--color 4 觉醒道具-->
+		<item id="26" input="additem_allawake" type="2" param="15055001-15055009"/><!--color 5 觉醒道具-->
+		<item id="27" input="additem_allawake" type="2" param="15056001-15056009"/><!--color 6 觉醒道具-->
+		<item id="28" input="additem_allawake" type="2" param="15057001-15057009"/><!--color 7 觉醒道具-->
+		<item id="29" input="testAddVipExp 100000" type="1"/><!--增加 100000点vip经验-->
+		<item id="30" input="additem 11000073 6" type="1"/><!--锁甲-->
+		<item id="31" input="additem 11000074 6" type="1"/><!--腰带-->
+		<item id="32" input="additem 11000081 6" type="1"/><!--刃-->
+		<item id="33" input="additem 11000082 6" type="1"/><!--发冠-->
+		<item id="34" input="additem 15000035 20" type="1"/><!--初级精炼石-->
+		<item id="35" input="additem 15000036 20" type="1"/><!--中级精炼石-->
+		<item id="36" input="additem 15000037 20" type="1"/><!--高级精炼石-->
+		<item id="37" input="additem 15000038 20" type="1"/><!--极品精炼石-->
+		<item id="38" input="additem 15000052 1" type="1"/><!--免战牌-->
+		<item id="39" input="addexp 10000" type="1"/><!--增加10000点经验-->
+		<item id="40" input="additem 15000051 100" type="1"/><!--增加100宝物精炼石-->
+		<item id="41" input="additem_treasure" type="2" param="13000015-13000018"/><!--增加所有红色宝物-->
+		<item id="42" input="additem_treasure" type="2" param="13000011-13000014"/><!--增加所有橙色宝物-->
+		<item id="43" input="additem_treasure" type="2" param="13000006-13000010"/><!--增加所有蓝色宝物-->
+		<item id="44" input="additem_treasure" type="2" param="13000001-13000005"/><!--增加所有绿色宝物-->
+		<item id="45" input="addfactionexp 100000" type="1"/><!--增加军团经验-->
+		<item id="46" input="testAddVipExp 100" type="1"/><!--增加 100点vip经验-->
+		<item id="49" input="additem 15000033 1000" type="1"/><!--增加 红色武将精华-->
+		<item id="47" input="additem 15000050 100" type="1"/><!--增加 100个刷新令-->
+		<item id="48" input="addBeastSoul 10000" type="1"/><!--增加 10000兽魂-->
+		<item id="49" input="additem 15000076 100" type="1"/><!--增加 贤者之石-->
+		<item id="50" input="additem 15000046 1" type="1"/><!--增加 固定宝箱-->
+		<item id="51" input="additem 15000047 1" type="1"/><!--增加 随机宝箱-->
+		<item id="52" input="additem 15000048 1" type="1"/><!--增加 选择宝箱-->
+		<item id="53" input="additem 15010001 100" type="1"/><!--增加 疾风手枪碎片*100-->
+		<item id="54" input="additem 15102039 100" type="1"/><!--增加 柳媚碎片*100-->
+		<item id="55" input="additem 15056008 1" type="1"/><!--增加 暗阴噬魂符*1-->
+		<item id="900" input="useItem" type="2" param="15000006"><!--使用物品(使用体力丹)-->
+			<errorcode error="100" actorId="10"/><!--item_not_exist = 100,--不存在的物品-->
+			<errorcode error="104" actorId="10"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="109" actorId="-1"/><!--item_not_direct_use = 109, -- 不能直接使用物品(useItem)-->
+		</item>
+		<item id="901" input="useItem" type="2" param="15000007"><!--使用物品(使用精力丹)-->
+			<errorcode error="100" actorId="11"/><!--item_not_exist = 100,--不存在的物品-->68
+			<errorcode error="104" actorId="11"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="109" actorId="-1"/><!--item_not_direct_use = 109, -- 不能直接使用物品(useItem)-->
+		</item>
+		<item id="902" input="useItem" type="2" param="15000005"><!--使用物品(使用讨伐令)-->
+			<errorcode error="100" actorId="11"/><!--item_not_exist = 100,--不存在的物品-->
+			<errorcode error="104" actorId="11"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="109" actorId="-1"/><!--item_not_direct_use = 109, -- 不能直接使用物品(useItem)-->
+		</item>		
+		<!--角色培养-->
+		<item id="1000" input="trainplayer"  type="2" param="1000001,1000002,1000003,1000004,1000005,1000006,1000007,1000008,1000009">	
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->		
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->		
+			<errorcode error="104" actorId="5"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="21" actorId="1002"/><!--attr_hasnot_replace = 21,--有未替换的属性-->
+			<errorcode error="22" actorId="-1"/><!--attr_has_max = 22,--培养属性已满-->
+			<errorcode error="78" actorId="29"/><!--vip_level_cannot_5train = 78,--vip等级不够5次培养-->
+			<errorcode error="79" actorId="29"/><!--vip_level_cannot_10train = 79,--vip等级不够10次培养-->			
+		</item>
+		<item id="1001" input="herobattle"  type="3">
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->	
+			<errorcode error="29" actorId="18"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="53" actorId="-1"/><!--card_has_battle  = 53,--卡牌已经上阵-->
+			<errorcode error="61" actorId="-1"/><!--card_has_guard = 61,--卡牌已经在援军位置-->
+			<errorcode error="54" actorId="-1"/><!--card_cannot_battleinplayer = 54,--不能上阵到主角位置-->
+			<errorcode error="55" actorId="-1"/><!--same_cardproto_cannot_battle = 55,--相同原型的卡牌不能上阵-->
+		</item>
+		<item id="1002" input="trainchoose"  type="3"><!--角色培养选择-->
+			<errorcode error="23" actorId="-1"/><!--attr_hasno_op = 23,--没有可替换的属性-->
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>
+		<item id="1003" input="awake"  type="3"><!--角色觉醒-->
+			<errorcode error="24" actorId="-1"/><!--awake_starlevel_max = 24,--已达最大觉醒星级和等级-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="104" actorId="7,22,23,24,25,26,27,28"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>
+		<item id="1004" input="talent"  type="3"><!--角色升阶-->		
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="25" actorId="-1"/><!--talent_level_max = 25,--已达最大天命等级-->
+			<errorcode error="104" actorId="8"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>
+		<item id="1005" input="awakeitem"  type="3"><!--角色升阶吞噬物品-->	
+			<errorcode error="66" actorId="0"/><!--awakeitem_error = 66,--觉醒吞噬物品错误-->
+			<errorcode error="100" actorId="0"/><!--item_not_exist = 100,--不存在的物品-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->		
+			<errorcode error="120" actorId="-1"/><!--品质错误-->			
+		</item>
+		<item id="1006" input="changepos"  type="3"><!--卡牌布阵-->	
+			<errorcode error="56" actorId="-1"/><!--has_no_changeobjs = 56,--没有互换对象-->
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->	
+		</item>
+		<item id="1007" input="trainhero"  type="2" param="1000001,1000002,1000003,1000004,1000005,1000006,1000007,1000008,1000009"><!--卡牌培养-->	
+			<errorcode error="29" actorId="-1"/><!--player_hasno_hero = 29,--不存在此卡牌-->		
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->		
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->		
+			<errorcode error="104" actorId="5"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="21" actorId="1008"/><!--attr_hasnot_replace = 21,--有未替换的属性-->
+			<errorcode error="22" actorId="-1"/><!--attr_has_max = 22,--培养属性已满-->		
+			<errorcode error="78" actorId="29"/><!--vip等级不够5次培养-->	
+			<errorcode error="79" actorId="29"/><!--vip等级不够10次培养-->		
+			<errorcode error="120" actorId="-1"/><!--品质错误-->		
+		</item>
+		<item id="1008" input="trainherochoose"  type="3"><!--卡牌培养替换-->	
+			<errorcode error="29" actorId="-1"/><!--player_hasno_hero = 29,--不存在此卡牌-->		
+			<errorcode error="23" actorId="-1"/><!--attr_hasno_op = 23,--没有可替换的属性-->
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>		
+		<item id="1010" input="challengestage" type="3"><!--暂未做三星扫荡测试-->
+			<errorcode error="5503" actorId="1011"/><!--challengestage_has_fail = 5503,--已经失败 请重新再来-->
+			<errorcode error="5504" actorId="-1"/><!--challengestage_state_error = 5504,--状态错误-->
+			<errorcode error="5500" actorId="-1"/><!--big_stageId_error = 5500,--大关卡id错误-->
+			<errorcode error="5501" actorId="-1"/><!--small_stageId_error = 5501,--小关卡id错误-->
+			<errorcode error="5511" actorId="-1"/><!--climb_over_max_stage = 5511,--超过最大关卡-->
+			<errorcode error="5516" actorId="-1"/><!--climb_has_over = 5516,--已经通关-->
+			<errorcode error="5022" actorId="12"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+		</item>	
+		<item id="1011" input="climbhandlerfail" type="3">
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="5504" actorId="-1"/><!--challengestage_state_error = 5504,--状态错误-->
+			<errorcode error="5506" actorId="-1"/><!--climb_has_no_fail = 5506,--还未失败不可操作-->
+			<errorcode error="5507" actorId="-1"/><!--mid_id_error = 5507,--密藏id错误-->
+			<errorcode error="5508" actorId="-1"/><!--mid_star_error = 5508,--密藏星级错误-->						
+		</item>
+		<item id="1012" input="takeClimbStageBonuses" type="3">
+			<errorcode error="5504" actorId="-1"/><!--challengestage_state_error = 5504,--状态错误-->
+			<errorcode error="5505" actorId="-1"/><!--win_all_stage_first = 5505,--请先通关再领取奖励-->
+		</item>
+		<item id="1013" input="addclimbattr" type="3">
+			<errorcode error="5504" actorId="-1"/><!--challengestage_state_error = 5504,--状态错误-->
+			<errorcode error="5510" actorId="-1"/><!--state_can_not_addattr = 5510,--当前状态不可增加属性-->
+			<errorcode error="5523" actorId="1010"/><!--climb_star_not_enough_add = 5523,--星数不足-->
+		</item>
+		<item id="1014" input="viewclimbranks" type="3">
+		
+		</item>
+		<item id="1015" input="climbattackelite" type="3">
+			<errorcode error="5504" actorId="-1"/><!--challengestage_state_error = 5504,--状态错误-->
+			<errorcode error="5503" actorId="1011"/><!--challengestage_has_fail = 5503,--已经失败 请重新再来-->
+			<errorcode error="5511" actorId="-1"/><!--climb_over_max_stage = 5511,--超过最大关卡-->
+			<errorcode error="5512" actorId="1016"/><!--climb_elite_max_count = 5512,--挑战精英次数达到最大-->
+			<errorcode error="5513" actorId="-1"/><!--climb_has_no_attack_elite = 5513,--当前没有精英关卡需要挑战-->
+			<errorcode error="5514" actorId="-1"/><!--climb_can_not_attack_this_elite = 5514,--不可挑战当前精英-->
+			<errorcode error="5515" actorId="-1"/><!--climb_elite_can_not_attack = 5515,--当前精英关卡不可挑战-->
+		</item>
+		<item id="1016" input="climbbuyelitecount" type="3">
+			<errorcode error="5504" actorId="-1"/><!--challengestage_state_error = 5504,--状态错误-->
+			<errorcode error="5522" actorId="-1"/><!--climbtower_over_buy_elite = 5522,--超过精英购买次数-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>		
+		<item id="1020" input="onequip" type="3"><!--穿戴装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="40" actorId="-1"/><!--has_no_equip = 40,--没有此装备-->
+			<errorcode error="41" actorId="-1"/><!--equip_has_beequiped = 41,--此装备已被穿戴-->
+			<errorcode error="35" actorId="0"/><!--has_no_targetcard = 35,--没有目标卡牌-->
+			<errorcode error="59" actorId="-1"/><!--card_has_not_battle = 59,--卡牌未上阵-->
+		</item>	
+		<item id="1021" input="enhanceequip" type="3"><!--强化装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="40" actorId="-1"/><!--has_no_equip = 40,--没有此装备-->
+			<errorcode error="43" actorId="12"/><!--cannot_over_2playerlevel = 43,--不可超过人物等级2倍-->
+			<errorcode error="44" actorId="-1"/><!--reach_max_enhancelevel  =44,--已达最大强化等级	-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+		</item>	
+		<item id="1022" input="starequip" type="3"><!--升星装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="40" actorId="-1"/><!--has_no_equip = 40,--没有此装备-->
+			<errorcode error="48" actorId="-1"/><!--equip_cannot_starup = 48,--此装备不能升星-->
+			<errorcode error="49" actorId="-1"/><!--星equip_max_star = 49,--已达最大星	-->
+			<errorcode error="18" actorId="-1"/><!--data_error = 59,--数据错误-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>			
+		<item id="1023" input="conciseequipitem" type="3"><!--精炼装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="40" actorId="-1"/><!--has_no_equip = 40,--没有此装备-->
+			<errorcode error="45" actorId="34,35,36,37"/><!--has_not_concisestone = 45,--没有精炼石-->
+			<errorcode error="46" actorId="34,35,36,37"/><!--item_isnot_concise = 46,--此物品不是精炼石	-->
+			<errorcode error="59" actorId="-1"/><!--equip_level_max = 59,--超过最大精炼等级-->
+		</item>		
+		<item id="1024" input="decomposeequip" type="3"><!--分解装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="40" actorId="-1"/><!--has_no_equip = 40,--没有此装备-->
+			<errorcode error="41" actorId="-1"/><!--equip_has_beequiped = 41,--此装备已被穿戴-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>	
+		<item id="1025" input="rebornequip" type="3"><!--分解装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="40" actorId="-1"/><!--has_no_equip = 40,--没有此装备-->
+			<errorcode error="41" actorId="-1"/><!--equip_has_beequiped = 41,--此装备已被穿戴-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>	
+		<item id="1026" input="offequip" type="3"><!--脱装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="40" actorId="-1"/><!--has_no_equip = 40,--没有此装备-->
+			<errorcode error="42" actorId="-1"/><!--equip_has_not_equiped = 42,--此装备没有被穿戴-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>	
+		<item id="1027" input="worldbosschoosecamp" type="3"><!--世界boss 选择加入阵营-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5022" actorId="12"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5570" actorId="-1"/><!--worldboss_time_err = 5570,--还未到boss时间-->
+			<errorcode error="5574" actorId="-1"/><!--worldboss_addcamp_finished = 5574,--你已选择过要加入的阵营-->
+		</item>		
+		<item id="1028" input="worldbossbuycount" type="3"><!--世界boss 购买攻击次数-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5022" actorId="12"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5570" actorId="-1"/><!--worldboss_time_err = 5570,--还未到boss时间-->
+			<errorcode error="5575" actorId="-1"/><!--worldboss_buy_count_max = 5575,--购买boss击杀次数已达上限-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="5571" actorId="1027"/><!--worldboss_addcamp_first = 5571,--请先选择要加入的阵营-->
+		</item>			
+		<item id="1029" input="worldbossattack" type="3"><!--世界boss 攻击世界boss-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5022" actorId="12"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5570" actorId="-1"/><!--worldboss_time_err = 5570,--还未到boss时间-->
+			<errorcode error="5571" actorId="1027"/><!--worldboss_addcamp_first = 5571,--请先选择要加入的阵营-->
+			<errorcode error="5572" actorId="1028"/><!--worldboss_hasno_killcount = 5572,--没有剩余击杀次数-->
+			<errorcode error="5571" actorId="1027"/><!--worldboss_addcamp_first = 5571,--请先选择要加入的阵营-->
+			<errorcode error="5573" actorId="-1"/><!--worldboss_in_cd = 5573,--boss在CD时间-->
+		</item>		
+		<item id="1030" input="worldbossviewRanks" type="3"><!--世界boss 查看排行榜-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5022" actorId="12"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5570" actorId="-1"/><!--worldboss_time_err = 5570,--还未到boss时间-->
+		</item>	
+		<item id="1031" input="worldbosstakehonorbonuses" type="3"><!--世界boss 领取荣誉奖励-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5576" actorId="-1"/><!--worldboss_state_err = 5576,--叛军boss状态错误-->
+			<errorcode error="5578" actorId="1029"/><!--worldboss_honor_not_enough = 5578,--当前荣誉不足-->
+			<errorcode error="5579" actorId="-1"/><!--worldboss_honor_has_taked = 5579,--当前荣誉奖励已经领取过-->
+			<errorcode error="5577" actorId="-1"/><!--worldboss_honor_bonuses_err = 5577,--没有该荣誉对应的奖励-->
+			<errorcode error="5580" actorId="-1"/><!--worldboss_has_no_quicktake = 5580,--没有可一健领取的荣誉奖励-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>		
+		<item id="1032" input="worldbosstakekillbonuses" type="3"><!--世界boss 领取击杀奖励-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5581" actorId="1029"/><!--worldboss_level_err = 5581,--该等级boss还未击杀-->
+			<errorcode error="5583" actorId="-1"/><!--worldboss_has_take_level_bonuses = 5583,--已经领取过该等级奖励-->
+			<errorcode error="5582" actorId="-1"/><!--worldboss_has_no_quick_bonuses = 5582,--没有可一健领取的击杀奖励-->
+			<errorcode error="5577" actorId="-1"/><!--worldboss_honor_bonuses_err = 5577,--没有该荣誉对应的奖励-->
+			<errorcode error="5580" actorId="-1"/><!--worldboss_has_no_quicktake = 5580,--没有可一健领取的荣誉奖励-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>		
+		<item id="1100" input="createfaction" type="3"><!--军团 创建军团-->
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->
+			<errorcode error="206" actorId="-1"/><!--you_hasin_faction  = 206,--已经在军团中-->
+			<errorcode error="202" actorId="0"/><!--faction_name_toolong = 202,--军团名字过长-->
+			<errorcode error="203" actorId="0"/><!--factionname_has_blank = 203,--军团名字有空格-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="204" actorId="20,29"/><!--viplevel_and_level_less = 204,--等级 vip等级不足-->
+			<errorcode error="205" actorId="-1"/><!--factionicon_error = 205,--军团图标错误-->
+			<errorcode error="201" actorId="-1"/><!--faction_name_exist = 201,--公会名字已经存在-->
+			<errorcode error="223" actorId="-1"/><!--退出军团24h内不可加入军团-->
+		</item>	
+		<item id="1101" input="factionlist" type="3"><!--军团 查看军团列表-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+		</item>		
+		<item id="1102" input="findfactionbyname" type="3"><!--军团 根据军团名查找军团-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="207" actorId="-1"/><!--faction_not_exist = 207,--军团不存在-->
+		</item>	
+		<item id="1103" input="applyfaction" type="3"><!--军团 申请军团-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="206" actorId="-1"/><!--you_hasin_faction  = 206,--已经在军团中-->
+			<errorcode error="210" actorId="20"/><!--faction_apply_level_error = 210,--不够等级申请军团-->
+			<errorcode error="223" actorId="-1"/><!--quit_faction_nomore_24h = 223,--退出军团24h内不可加入军团-->
+			<errorcode error="207" actorId="-1"/><!--qfaction_not_exist = 207,--军团不存在-->
+			<errorcode error="208" actorId="-1"/><!--player_applyfaciton_max = 208,--超过个人最大申请数量-->
+			<errorcode error="209" actorId="-1"/><!--faction_apply_max = 209,--军团申请数量达到最大-->
+			<errorcode error="211" actorId="1103"/><!--faction_has_appled = 211,--你已经申请过该军团了-->
+		</item>	
+		<item id="1104" input="acceptfactionapply" type="3"><!--军团 接受军团申请-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="207" actorId="-1"/><!--faction_not_exist = 207,--军团不存在-->
+			<errorcode error="213" actorId="-1"/><!--player_isnot_header_subheader = 213,--军团长和副军团长才能批准-->
+			<errorcode error="214" actorId="-1"/><!--faction_has_no_apply = 214,--没有该军团申请-->
+			<errorcode error="215" actorId="-1"/><!--faction_has_max_mem = 215,--军团成员数量达到上限-->
+			<errorcode error="206" actorId="-1"/><!--you_hasin_faction  = 206,--已经在军团中-->
+		</item>	
+		<item id="1105" input="refusefactionapply" type="3"><!--军团 拒绝军团申请-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="207" actorId="-1"/><!--faction_not_exist = 207,--军团不存在-->
+			<errorcode error="213" actorId="-1"/><!--player_isnot_header_subheader = 213,--军团长和副军团长才能批准-->
+			<errorcode error="214" actorId="-1"/><!--faction_has_no_apply = 214,--没有该军团申请-->
+		</item>
+		<item id="1106" input="kickfactionmember" type="3"><!--军团 踢出军团成员-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="1103"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="207" actorId="1100"/><!--faction_not_exist = 207,--军团不存在-->
+			<errorcode error="216" actorId="-1"/><!--kick_mem_isnot_infaction = 216,--被踢出人不在军团-->
+			<errorcode error="217" actorId="-1"/><!--kick_mem_isnot_inselffaction = 217,--被踢出人不在自己军团-->
+			<errorcode error="218" actorId="-1"/><!--cannot_kick_header = 218,--不能踢出军团长-->
+			<errorcode error="219" actorId="-1"/><!--cannot_kick_self = 219,--不能踢出自己-->	
+			<errorcode error="220" actorId="-1"/><!--join_faction_no_24h = 220,--该成员加入未满24小时-->
+			<errorcode error="221" actorId="-1"/><!--kick_subheader_mustbe_header = 221,--军团长才能踢出副军团长-->		
+			<errorcode error="213" actorId="-1"/><!--player_isnot_header_subheader = 213,--军团长和副军团长才能批准-->
+		</item>	
+		<item id="1107" input="quitfaction" type="3"><!--军团 退出军团-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="1103"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="207" actorId="1100"/><!--faction_not_exist = 207,--军团不存在-->
+			<errorcode error="222" actorId="-1"/><!--factionheader_cannot_quit = 222,--军团长不能退出军团-->
+		</item>		
+		<item id="1108" input="tranferfactionheader" type="3"><!--军团 转让军团长-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="260" actorId="-1"/><!--cannot_tranfer_toself = 260,--团长不能转让给自己-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="207" actorId="-1"/><!--faction_not_exist = 207,--军团不存在-->
+			<errorcode error="224" actorId="-1"/><!--you_are_not_factionheader = 224,--不是军团长-->
+			<errorcode error="225" actorId="-1"/><!--tranfer_player_isnot_infaction = 225,--转让成员不在军团中-->
+			<errorcode error="226" actorId="-1"/><!--tranfer_player_not_inselffaction = 226,--转让成员不在自己的军团-->			
+		</item>		
+		<item id="1109" input="setfactionsubheader" type="3"><!--军团 设置副军团长-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="229" actorId="-1"/><!--cannot_tranfersubheader_toself = 229,--副团长不能转让给自己-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->	
+			<errorcode error="207" actorId="-1"/><!--faction_not_exist = 207,--军团不存在-->
+			<errorcode error="224" actorId="-1"/><!--you_are_not_factionheader = 224,--不是军团长-->
+			<errorcode error="227" actorId="-1"/><!--target_is_subheader = 227,--对方已经是副军团长-->
+			<errorcode error="226" actorId="-1"/><!--tranfer_player_not_inselffaction = 226,--转让成员不在自己的军团-->		
+			<errorcode error="225" actorId="-1"/><!--tranfer_player_isnot_infaction = 225,--转让成员不在军团中-->	
+			<errorcode error="228" actorId="-1"/><!--subheadercount_nomore_2 = 228,--副军团长人数不能超过2人-->				
+		</item>	
+		<item id="1110" input="unsetfactionsubheader" type="3"><!--军团 撤销副军团长-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="230" actorId="-1"/><!--cannot_unset_toself = 230,--不能撤销自己-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->	
+			<errorcode error="207" actorId="-1"/><!--faction_not_exist = 207,--军团不存在-->
+			<errorcode error="224" actorId="-1"/><!--you_are_not_factionheader = 224,--不是军团长-->
+			<errorcode error="226" actorId="-1"/><!--tranfer_player_not_inselffaction = 226,--转让成员不在自己的军团-->		
+			<errorcode error="225" actorId="-1"/><!--tranfer_player_isnot_infaction = 225,--转让成员不在军团中-->	
+			<errorcode error="231" actorId="-1"/><!--target_isnot_subheader = 231,--对方不是副军团长-->
+		</item>	
+		<item id="1111" input="accuseheader" type="3"><!--军团 弹劾军团长-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="232" actorId="-1"/><!--cannot_accuse_self = 232,--不能弹劾自己-->	
+			<errorcode error="233" actorId="-1"/><!--time_cannot_accuse = 233,--未到期不能弹劾-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->
+		</item>	
+		<item id="1112" input="factionleaveword" type="3"><!--军团 军团留言-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="234" actorId="0"/><!--faction_leave_toolong = 234,--军团留言过长-->
+			<errorcode error="235" actorId="-1"/><!--faction_leaveword_cd = 235,--军团留言CD时间未到-->	
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->
+		</item>	
+		<item id="1113" input="setleavewordhead" type="3"><!--军团 军团留言置顶-->
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="236" actorId="-1"/><!--sethead_must_be_header = 236,--军团长才可置顶留言-->
+		</item>		
+		<item id="1114" input="worship" type="3"><!--军团 祭祀-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="237" actorId="-1"/><!--worship_over_maxmem = 237,--祭祀次数不能超过成员最大数量-->
+			<errorcode error="238" actorId="-1"/><!--today_hasbe_worship = 238,--今日已祭祀过-->	
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->			
+		</item>	
+		<item id="1115" input="takeprocessbonuses" type="3"><!--军团 领取进度奖励-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->	
+			<errorcode error="239" actorId="-1"/><!--cannot_take_process = 239,--不可领取当前进度奖励-->
+			<errorcode error="240" actorId="-1"/><!--process_bonuses_taked = 240,--此进度奖励已经领取-->		
+		</item>	
+		<item id="1116" input="factionuplevel" type="3"><!--军团 军团手动升级-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->	
+			<errorcode error="243" actorId="-1"/><!--faction_up_mustheader = 243,--军团长才能升级技能-->
+			<errorcode error="241" actorId="-1"/><!--faction_level_max = 241,--军团已到最高等级-->	
+			<errorcode error="242" actorId="45"/><!--faction_exp_not_enough = 242,--经验不够升级-->				
+		</item>	
+		<item id="1117" input="factionskillup" type="3"><!--军团 军团手动升级-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="249" actorId="-1"/><!--factionskill_man_headerorsubheader = 249,--军团长才能升级技能-->	
+			<errorcode error="244" actorId="-1"/><!--faction_skill_max = 244,--军团技能等级已达最大-->
+			<errorcode error="246" actorId="45"/><!--faction_exp_not_enough2 = 246,--军团经验不够升级-->	
+			<errorcode error="212" actorId="1100"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="245" actorId="45"/><!--faction_level_not_enough = 245,--请先升级军团等级-->				
+		</item>	
+		<item id="1118" input="factionmemskillup" type="3"><!--军团 成员升级技能-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="247" actorId="19"/><!--devote_not_enough = 247,--贡献不够-->	
+			<errorcode error="212" actorId="1103"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="248" actorId="-1"/><!--cannot_over_factionskilllevel = 248,--不可超过军团技能等级-->					
+		</item>	
+		<item id="1119" input="decomposefaction" type="3"><!--军团 解散军团-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="1100"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="250" actorId="-1"/><!--decompose_faction_must_header = 250,--军团长才能解散军团-->	
+			<errorcode error="251" actorId="-1"/><!--cannot_decompose_manymem = 251,--成员数量过多不可解散-->					
+		</item>		
+		<item id="1120" input="factionmodify" type="3"><!--军团 修改军团信息-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="1100"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="253" actorId="-1"/><!--faction_modify_headerorsubheader = 253,--军团长和副军团长可以修改-->	
+			<errorcode error="254" actorId="-1"/><!--faction_modify_same = 254,--一样的无需修改-->					
+		</item>	
+		<item id="1121" input="factionbuy" type="3"><!--军团 军团商店购买-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="-1"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="255" actorId="-1"/><!--faction_buy_item_err = 255,--物品不对-->	
+			<errorcode error="247" actorId="19"/><!--devote_not_enough = 247,--贡献不够-->	
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->		
+			<errorcode error="256" actorId="-1"/><!--faction_buy_over_count = 256,--今日购买次数达到最大-->		
+			<errorcode error="258" actorId="-1"/><!--cannot_buy_limitshop = 258,--不可购买该限时商店物品-->		
+			<errorcode error="259" actorId="-1"/><!--over_faction_max_buycount = 259,--超过军团最大购买次数-->					
+		</item>		
+		<item id="1122" input="factionmemlist" type="3"><!--军团 军团成员列表-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="212" actorId="1100"/><!--player_has_no_faction = 212,--不是军团成员-->
+			<errorcode error="207" actorId="1100"/><!--faction_not_exist = 207,--军团不存在-->					
+		</item>				
+		<item id="1130" input="awakehero" type="3"><!--卡牌 卡牌觉醒-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="-1"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="24" actorId="-1"/><!--awake_starlevel_max = 24,--已达最大觉醒星级和等级-->	
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->	
+			<errorcode error="104" actorId="7,22,23,24,25,26,27,28"/><!--item_num_no_enough = 104,--物品个数不足-->		
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->		
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>		
+		<item id="1131" input="awakeheroitem" type="3"><!--卡牌 卡牌觉醒物品-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="-1"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="100" actorId="7,22,23,24,25,26,27,28"/><!--item_not_exist = 100,--不存在的物品-->	
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->	
+			<errorcode error="66" actorId="-1"/><!--awakeitem_error = 66,--觉醒吞噬物品错误-->		
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->	
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>	
+		<item id="1132" input="talenthero" type="3"><!--卡牌 卡牌天命-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="-1"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="25" actorId="-1"/><!--talent_level_max = 25,--已达最大天命等级-->	
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->	
+			<errorcode error="104" actorId="8"/><!--item_num_no_enough = 104,--物品个数不足-->	
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>	
+		<item id="1133" input="breakhero" type="3"><!--卡牌 卡牌突破-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="1001"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="27" actorId="-1"/><!--break_level_max = 27,--已到最高突破等级-->	
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->	
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->	
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->	
+			<errorcode error="104" actorId="6"/><!--item_num_no_enough = 104,--物品个数不足-->		
+			<errorcode error="120" actorId="-1"/><!--品质错误-->
+		</item>	
+		<item id="1134" input="showdecomposehero" type="3"><!--卡牌 展示分解卡牌-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="1001"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="32" actorId="-1"/><!--card_cannot_decompose = 32,--此卡牌不可分解-->				
+		</item>		
+		<item id="1135" input="showrebornhero" type="3"><!--卡牌 展示重生卡牌-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="1001"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="33" actorId="-1"/><!--card_donot_reborn = 33,--此卡牌不可重生-->				
+		</item>	
+		<item id="1136" input="offguardhero" type="3"><!--卡牌 护卫下阵-->
+			<errorcode error="12" actorId="1001"/><!--param_error = 12,--参数错误-->
+		</item>	
+		<item id="1137" input="rebornhero" type="3"><!--卡牌 卡牌重生-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="1001"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="33" actorId="-1"/><!--card_donot_reborn = 33,--此卡牌不可重生-->	
+			<errorcode error="31" actorId="-1"/><!--card_donot_decompose = 31,--上阵卡牌不可分解-->		
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="102" actorId="19"/><!--space_no_enough = 102,--包裹空间不足-->			
+		</item>	
+		<item id="1138" input="decomposehero" type="3"><!--卡牌 卡牌分解-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="29" actorId="1001"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="32" actorId="-1"/><!--card_cannot_decompose = 32,--此卡牌不可分解-->	
+			<errorcode error="102" actorId="19"/><!--space_no_enough = 102,--包裹空间不足-->	
+			<errorcode error="31" actorId="-1"/><!--card_donot_decompose = 31,--上阵卡牌不可分解-->		
+		</item>			
+		<item id="1033" input="refreshFightList" type="3"><!--夺宝 刷新战斗列表-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->
+			<errorcode error="105" actorId="-1"/><!--item_not_proto = 105, -- 无此物品原型ID-->
+			<errorcode error="117" actorId="-1"/><!--item_not_treasure_piece = 117, -- 不是宝物碎片-->
+		</item>
+		<item id="1034" input="robTreasureFragment" type="3"><!--夺宝 抢夺宝物-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5203" actorId="0"/><!--robTreasure_fight_list_index_error	= 5203, -- 挑战列表index错误-->
+			<errorcode error="105" actorId="-1"/><!--item_not_proto = 105, -- 无此物品原型ID-->
+			<errorcode error="117" actorId="-1"/><!--item_not_treasure_piece = 117, -- 不是宝物碎片-->
+			<errorcode error="57" actorId="901"/><!--energy_not_enough = 57, -- 精力不足-->
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5202" actorId="1033"/><!--robTreasure_fight_list_not_exist = 5202, -- 请先获取挑战列表-->
+			<errorcode error="5201" actorId="-1"/><!--robTreasure_guarding = 5201, -- 保护状态-->
+			<errorcode error="5200" actorId="-1"/><!--robTreasure_not_piece = 5200, -- 宝物碎片已被抢走-->
+			<errorcode error="5205" actorId="-1"/><!--robTreasure_had_piece				= 5205, -- 已有此碎片-->
+		</item>
+		<item id="1035" input="repRobTreasureFragment" type="3"><!--夺宝 重复抢夺宝物-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="105" actorId="-1"/><!--item_not_proto = 105, -- 无此物品原型ID-->
+			<errorcode error="117" actorId="-1"/><!--item_not_treasure_piece = 117, -- 不是宝物碎片-->
+			<errorcode error="57" actorId="901"/><!--energy_not_enough = 57, -- 精力不足-->
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5204" actorId="0"/><!--robTreasure_opp_error = 5204, -- 无此挑战对象-->
+			<errorcode error="5205" actorId="-1"/><!--robTreasure_had_piece				= 5205, -- 已有此碎片-->
+		</item>
+		<item id="1036" input="robTreasureGuard" type="3"><!--夺宝 开启保护时间-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="105" actorId="-1"/><!--item_not_proto = 105, -- 无此物品原型ID-->
+			<errorcode error="118" actorId="-1"/><!--item_not_refuse_Fight = 118, -- 不是免战牌-->
+			<errorcode error="100" actorId="38"/><!--item_not_exist = 100,--不存在的物品-->
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->
+		</item>
+		<item id="1037" input="arenaChallengeList" type="3"><!--竞技场 挑战列表-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+		</item>
+		<item id="1038" input="arenaRankList" type="3"><!--竞技场 获取排行榜-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+		</item>
+		<item id="1039" input="arenaBattle" type="3"><!--竞技场 挑战-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="57" actorId="901"/><!--energy_not_enough = 57, -- 精力不足-->
+			<errorcode error="18" actorId="-1"/><!--data_error = 18,--数据错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5308" actorId="1037"/><!--arena_challenge_List_error = 5308, -- 先获取竞技场挑战列表-->
+			<errorcode error="5307" actorId="-1"/><!--arena_challenge_self = 5307, -- 竞技场不能挑战自己-->
+			<errorcode error="5301" actorId="-1"/><!--arena_challenge_nor_sweep = 5301, -- 竞技场名次高于当前的不许扫荡-->
+			<errorcode error="5300" actorId="-1"/><!--arena_challenge_opp_error = 5300, -- 竞技场挑战对象错误-->
+		</item>
+		<item id="1040" input="arenaBuyGoods" type="3"><!--竞技场 商店购买-->
+			<errorcode error="5023" actorId="0"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5303" actorId="-1"/><!--arena_goods_not_exist = 5303, -- 竞技场购买商品序号错误-->
+			<errorcode error="5302" actorId="0"/><!--arena_buy_goods_type_error = 5302, -- 竞技场购买商品类型错误-->
+			<errorcode error="5306" actorId="0"/><!--arena_costs_error = 5306, -- 竞技场消耗结构错误-->
+			<errorcode error="5304" actorId="1039"/><!--arena_rank_not_enough_buy = 5304, -- 竞技场名次不足购买商品-->
+			<errorcode error="5305" actorId="-1"/><!--arena_goods_max_buy_count = 5305, -- 竞技场此商品购买次数已达上限-->
+			<errorcode error="104" actorId="6"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="69" actorId="1039"/><!--prestige_not_enough = 69, -- 声望不足-->
+			<errorcode error="70" actorId="1039"/><!--pronounce_not_enough = 70, -- 威名不足-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>
+		<item id="1041" input="recommendFriends" type="3"><!--社交 推荐好友-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="300" actorId="-1"/><!--friend_max_count = 300, -- 好友已达最大上限-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+		</item>
+		<item id="1042" input="applyFriend" type="3"><!--社交 申请好友-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="8" actorId="-1"/><!--user_login_nochar = 8,--没有角色-->
+			<errorcode error="305" actorId="-1"/><!--friend_not_oneself = 305, -- 操作对象不能为自己-->
+			<errorcode error="311" actorId="-1"/><!--friend_already_blacklist = 311, -- 是拉黑玩家-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="300" actorId="-1"/><!--friend_max_count = 300, -- 好友已达最大上限-->
+			<errorcode error="311" actorId="-1"/><!--friend_already_blacklist = 311, -- 是拉黑玩家-->
+		</item>
+		<item id="1043" input="applyFriendByName" type="3"><!--社交 申请好友2-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="8" actorId="-1"/><!--user_login_nochar = 8,--没有角色-->
+			<errorcode error="305" actorId="-1"/><!--friend_not_oneself = 305, -- 操作对象不能为自己-->
+			<errorcode error="311" actorId="-1"/><!--friend_already_blacklist = 311, -- 是拉黑玩家-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="300" actorId="-1"/><!--friend_max_count = 300, -- 好友已达最大上限-->
+			<errorcode error="311" actorId="-1"/><!--friend_already_blacklist = 311, -- 是拉黑玩家-->
+		</item>
+		<item id="1044" input="agreeAddFriend" type="3"><!--社交 同意加好友-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="302" actorId="-1"/><!--friend_not_apply = 302, -- 对方无申请好友-->
+			<errorcode error="8" actorId="1042"/><!--user_login_nochar = 8,--没有角色-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="300" actorId="-1"/><!--friend_max_count = 300, -- 好友已达最大上限-->
+			<errorcode error="303" actorId="-1"/><!--friend_already = 303, -- 对方已是好友-->
+		</item>
+		<item id="1045" input="refuseAddFriend" type="3"><!--社交 拒绝加好友-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="302" actorId="1042"/><!--friend_not_apply = 302, -- 对方无申请好友-->
+		</item>
+		<item id="1046" input="deleteFriend" type="3"><!--社交 移除好友-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="304" actorId="-1"/><!--friend_not_friend = 304, -- 对方不是好友-->
+		</item>
+		<item id="1047" input="sendFriendEnergy" type="3"><!--社交 赠送好友精力-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="304" actorId="-1"/><!--friend_not_friend = 304, -- 对方不是好友-->
+			<errorcode error="307" actorId="-1"/><!--friend_already_send = 307, -- 已赠送-->
+		</item>
+		<item id="1048" input="takeFriendEnergy" type="3"><!--社交 领取好友赠送精力-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="304" actorId="-1"/><!--friend_not_friend = 304, -- 对方不是好友-->
+			<errorcode error="308" actorId="-1"/><!--friend_already_took = 308, -- 无领取状态-->
+			<errorcode error="60" actorId="1034"/><!--energy_max = 60, -- 精力已满-->
+			<errorcode error="309" actorId="-1"/><!--friend_already_max_took = 309, -- 已达最大领取次数-->
+		</item>
+		<item id="1049" input="oneKeyTakeFriendEnergy" type="3"><!--社交 一键领取好友赠送精力-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="60" actorId="1034"/><!--energy_max = 60, -- 精力已满-->
+			<errorcode error="309" actorId="-1"/><!--friend_already_max_took = 309, -- 已达最大领取次数-->
+			<errorcode error="308" actorId="-1"/><!--friend_already_took = 308, -- 无领取状态-->
+		</item>
+		<item id="1050" input="addBlacklist" type="3"><!--社交 拉黑-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="305" actorId="-1"/><!--friend_not_oneself = 305, -- 操作对象不能为自己-->
+			<errorcode error="311" actorId="-1"/><!--friend_already_blacklist = 311, -- 是拉黑玩家-->
+			<errorcode error="8" actorId="-1"/><!--user_login_nochar = 8,--没有角色-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+		</item>
+		<item id="1051" input="deleteBlacklist" type="3"><!--社交 解除拉黑-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="310" actorId="-1"/><!--friend_not_blacklist = 310, -- 不是黑名单-->
+		</item>
+		<item id="1052" input="equipTreasure" type="3"><!--宝物 上阵宝物-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="150" actorId="-1"/><!--treasure_not_exist = 150, -- 宝物不存在-->
+			<errorcode error="166" actorId="-1"/><!--treasure_exp_not_battle = 166, -- 经验宝物不可上阵-->
+			<errorcode error="151" actorId="-1"/><!--treasure_has_used = 151, -- 宝物已装备-->
+			<errorcode error="29" actorId="-1"/><!--player_hasno_hero = 29,--不存在此卡牌-->
+			<errorcode error="83" actorId="1001"/><!--card_has_not_battle = 83,-- 此卡牌未出战-->
+		</item>
+		<item id="1053" input="unequipTreasure" type="3"><!--宝物 下阵宝物-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="150" actorId="-1"/><!--treasure_not_exist = 150, -- 宝物不存在-->
+			<errorcode error="152" actorId="-1"/><!--treasure_not_used = 152, -- 宝物未装备-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>
+		<item id="1054" input="refineTreasure" type="3"><!--宝物 精炼宝物-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="150" actorId="-1"/><!--treasure_not_exist = 150, -- 宝物不存在-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="154" actorId="-1"/><!--treasure_max_refined = 154, -- 宝物已精炼最大级-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+			<errorcode error="155" actorId="40"/><!--treasure_stone_not_enough = 155, -- 宝物精炼石不足-->
+			<errorcode error="156" actorId="41,42,43,44"/><!--treasure_refine_not_enough = 156, -- 精炼同类型宝物不足-->
+		</item>
+		<item id="1055" input="enhanceTreasure" type="3"><!--宝物 强化宝物-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="150" actorId="-1"/><!--treasure_not_exist = 150, -- 宝物不存在-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="165" actorId="-1"/><!--treasure_cost_not_self = 165, -- 强化消耗不能和目标相同-->
+			<errorcode error="153" actorId="-1"/><!--treasure_max_enhanced = 153, -- 宝物已强化最大级-->
+			<errorcode error="19" actorId="2"/><!--goldcoin_not_enough = 19,--金币不足-->
+			<errorcode error="157" actorId="1056"/><!--treasure_refined = 157, -- 宝物已精炼-->
+			<errorcode error="151" actorId="-1"/><!--treasure_has_used = 151, -- 宝物已装备-->
+		</item>
+		<item id="1056" input="sellTreasures" type="3"><!--宝物 出售宝物-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="150" actorId="-1"/><!--treasure_not_exist = 150, -- 宝物不存在-->
+			<errorcode error="158" actorId="-1"/><!--treasure_not_sell_quality = 158, -- 高品质宝物不许出售-->
+			<errorcode error="151" actorId="-1"/><!--treasure_has_used = 151, -- 宝物已装备-->
+		</item>
+		<item id="1057" input="compoundTreasure" type="3"><!--宝物 宝物合成-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="105" actorId="-1"/><!--item_not_proto = 105, -- 无此物品原型ID-->
+			<errorcode error="159" actorId="-1"/><!--treasure_not = 159,--不是宝物-->
+			<errorcode error="163" actorId="0"/><!--treasure_compound_not_exist = 163,--没有此合成宝物配置-->
+			<errorcode error="160" actorId="21"/><!--treasure_fragment_not_enough = 160,--宝物碎片不足-->
+		</item>
+		<item id="1058" input="smelterTreasure" type="3"><!--宝物 熔炉宝物-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="161" actorId="0"/><!--treasure_smelter_not_exist = 161, -- 没有此熔炉宝物配置-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="150" actorId="-1"/><!--treasure_not_exist = 150, -- 宝物不存在-->
+			<errorcode error="162" actorId="-1"/><!--treasure_smelter_quality_error	= 162, -- 熔炉宝物品质错误-->
+			<errorcode error="164" actorId="-1"/><!--treasure_enhanced = 164, -- 宝物已强化-->
+			<errorcode error="157" actorId="-1"/><!--treasure_refined = 157, -- 宝物已精炼-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+		</item>
+		<item id="1088" input="treasureRebirth" type="3"><!--宝物 宝物重生-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="150" actorId="-1"/><!--treasure_not_exist = 150, -- 宝物不存在-->
+			<errorcode error="167" actorId="-1"/><!--treasure_init_not_rebirth = 167, -- 初始宝物不可重生-->
+			<errorcode error="168" actorId="-1"/><!--treasure_exp_not_rebirth = 168, -- 经验宝物不可重生-->
+			<errorcode error="151" actorId="-1"/><!--treasure_has_used = 151, -- 宝物已装备-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>
+		<item id="1059" input="takeLuxuryLoginBonuses" type="3"><!--每日签到活动 领取豪华签到奖励-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5605" actorId="-1"/><!--login_luxury_groupId_not_exist = 5605, -- 无此豪华签到组ID-->
+			<errorcode error="5606" actorId="-1"/><!--login_luxury_group_amount_not_exist = 5606, -- 此豪华签到组无此金额奖励-->
+			<errorcode error="551" actorId="0"/><!--bonus_string_empty = 551, -- 奖励数据为空-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5020" actorId="0"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5600" actorId="-1"/><!--login_cur_luxury_groupId_error = 5600, -- 当前豪华签到组ID错误-->
+			<errorcode error="5608" actorId="-1"/><!--login_luxury_amount_not_take = 5608, -- 此豪华签到金额奖励条件不足-->
+			<errorcode error="5601" actorId="-1"/><!--login_luxury_amount_took = 5601, -- 此豪华签到金额奖励已领取-->
+			<errorcode error="5602" actorId="-1"/><!--login_luxury_amount_not_exist = 5602, -- 无此豪华签到金额奖励-->
+		</item>
+		<item id="1060" input="takeLoginBonuses" type="3"><!--每日签到活动 领取签到奖励-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5607" actorId="-1"/><!--login_days_cnf_not_exist = 5607, -- 此天数签到配置不存在-->
+			<errorcode error="551" actorId="0"/><!--bonus_string_empty = 551, -- 奖励数据为空-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5020" actorId="0"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5603" actorId="-1"/><!--login_days_not_enough = 5603, -- 累计登陆条件不足-->
+			<errorcode error="5604" actorId="-1"/><!--login_days_bonuses_took = 5604, -- 此天数的签到奖励已领取-->
+		</item>
+		<item id="1061" input="takeFood" type="3"><!--体力领取活动 领取体力-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5650" actorId="-1"/><!--food_not_open = 5650, -- 饭点未到-->
+			<errorcode error="5020" actorId="0"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5651" actorId="-1"/><!--food_took = 5651, -- 已领取食物-->
+		</item>
+		<item id="1062" input="takeVipGift" type="3"><!--Vip礼包活动 领取每日福利-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5700" actorId="-1"/><!--vipGift_welfare_not_exist = 5700, -- 当前vip等级福利礼包不存在-->
+			<errorcode error="551" actorId="0"/><!--bonus_string_empty = 551, -- 奖励数据为空-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5020" actorId="0"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5701" actorId="-1"/><!--vipGift_welfare_took = 5701, -- 当前vip等级福利已领取-->
+		</item>
+		<item id="1063" input="buyWeekVipGift" type="3"><!--Vip礼包活动 购买周礼包-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5702" actorId="-1"/><!--vipGift_week_gift_id_not_exist = 5702, -- 周礼包id不存在-->
+			<errorcode error="551" actorId="0"/><!--bonus_string_empty = 551, -- 奖励数据为空-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5020" actorId="0"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5703" actorId="-1"/><!--vipGift_week_gift_max_bought = 5703, -- 此id周礼包已达购买上限-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>
+		<item id="1064" input="takeFortuneBonuses" type="3"><!--招财符活动 领取招财宝箱-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5750" actorId="-1"/><!--fortune_chest_not_exist = 5750, -- 此招财宝箱不存在-->
+			<errorcode error="551" actorId="0"/><!--bonus_string_empty = 551, -- 奖励数据为空-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5020" actorId="0"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5753" actorId="-1"/><!--fortune_chest_not_take = 5753, -- 此招财宝箱条件未满足-->
+			<errorcode error="5751" actorId="-1"/><!--fortune_chest_took = 5751, -- 此招财宝箱已领取-->
+		</item>
+		<item id="1065" input="buyFortune" type="3"><!--招财符活动 招财-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+			<errorcode error="751" actorId="0"/><!--vip_field_not_exist = 751, -- vip数据某字段不存在-->
+			<errorcode error="5020" actorId="0"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5752" actorId="46"/><!--fortune_buy_max_count = 5752, -- 招财次数已达上限-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>
+		<item id="1066" input="eliteInbreakAttack" type="3"><!--精英入侵活动 精英入侵攻打-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5015" actorId="0"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5800" actorId="-1"/><!--eliteInbreak_data_not_exist = 5800, -- 入侵数据不存在-->
+			<errorcode error="58" actorId="900"/><!--physical_not_enough = 58, -- 体力不足-->
+			<errorcode error="551" actorId="0"/><!--bonus_string_empty = 551, -- 奖励数据为空-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="5802" actorId="-1"/><!--eliteInbreak_chapter_not_exist = 5802, -- 入侵章节数据不存在-->
+			<errorcode error="5803" actorId="-1"/><!--eliteInbreak_stage_not_exist = 5803, -- 入侵小关卡数据不存在-->
+			<errorcode error="5020" actorId="-1"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="5805" actorId="-1"/><!--eliteInbreak_index_not_exist = 5805, -- 无此精英入侵数据-->
+			<errorcode error="5807" actorId="-1"/><!--eliteInbreak_killed = 5807, -- 此精英入侵已击杀-->
+			<errorcode error="62" actorId="0"/><!--monstergroup_not_found = 62,--不存在的怪物组-->
+		</item>
+		<item id="1200" input="sharerebelmonster" type="3">
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5553" actorId="1042,1043"/><!--rebel_friends_count_not_enough = 5553,--没有满足条件的好友可分享-->
+			<errorcode error="5555" actorId="-1"/><!--rebelarmy_state_error = 5555,--叛军状态错误-->
+			<errorcode error="5552" actorId="-1"/><!--rebel_cannot_share = 5552,--当前没有发现叛军不可分享-->
+			<errorcode error="5556" actorId="-1"/><!--rebelarmy_state_hasshared = 5556,--已经分享过-->
+		</item>
+		<item id="1201" input="rebelkillmonster" type="3">
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="5553" actorId="1042,1043"/><!--rebel_friends_count_not_enough = 5553,--没有满足条件的好友可分享-->
+			<errorcode error="5550" actorId="92"/><!--crusadeCount_not_enough = 5550,--讨伐次数不足-->
+			<errorcode error="5555" actorId="-1"/><!--rebelarmy_state_error = 5555,--叛军状态错误-->
+			<errorcode error="5551" actorId="-1"/><!--rebelarmy_has_no_monster = 5551,--当前没有可击杀的叛军-->
+		</item>	
+		<item id="1202" input="rebelviewrank" type="3">
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5553" actorId="1042,1043"/><!--rebel_friends_count_not_enough = 5553,--没有满足条件的好友可分享-->
+			<errorcode error="5550" actorId="92"/><!--crusadeCount_not_enough = 5550,--讨伐次数不足-->
+			<errorcode error="5555" actorId="-1"/><!--rebelarmy_state_error = 5555,--叛军状态错误-->
+			<errorcode error="5551" actorId="-1"/><!--rebelarmy_has_no_monster = 5551,--当前没有可击杀的叛军-->
+		</item>	
+		<item id="1203" input="rebeltakefeatbonuses" type="3">
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>	
+		<item id="1204" input="rebelbattlemeritbuy" type="3">
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="72" actorId="1201"/><!--battleMerit_not_enough 			= 72, -- 战功不足-->
+			<errorcode error="104" actorId="49"/><!--			item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>	
+		<item id="1067" input="takeChapterBonuses" type="3"><!--关卡 领取章节宝箱-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="500" actorId="-1"/><!--stage_chapterId_not_exist = 500, -- 章节ID不存在-->
+			<errorcode error="513" actorId="-1"/><!--stage_chapter_not_open = 513, -- 此章节未开启-->
+			<errorcode error="505" actorId="-1"/><!--stage_chapter_chest_not_exist	= 505, -- 此章节无此星级宝箱-->
+			<errorcode error="507" actorId="-1"/><!--stage_chapter_chest_took = 507, -- 此章节星级宝箱已领取-->
+			<errorcode error="506" actorId="-1"/><!--stage_chapter_chest_not_can_take= 506, -- 此章节星级宝箱条件未达成-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+		</item>
+		<item id="1068" input="takeStageBonuses" type="3"><!--关卡 领取小节宝箱-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="500" actorId="-1"/><!--stage_chapterId_not_exist = 500, -- 章节ID不存在-->
+			<errorcode error="513" actorId="-1"/><!--stage_chapter_not_open = 513, -- 此章节未开启-->
+			<errorcode error="501" actorId="-1"/><!--stage_stageId_not_exist = 501, -- 此章节的关卡ID不存在-->
+			<errorcode error="508" actorId="-1"/><!--stage_stage_not_pass_chest = 508, -- 无此章节的关卡宝箱-->
+			<errorcode error="509" actorId="-1"/><!--stage_stage_not_pass = 509, -- 此章节的关卡未通关-->
+			<errorcode error="510" actorId="-1"/><!--stage_stage_chest_took = 510, -- 此章节的关卡宝箱已领取-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+		</item>
+		<item id="1069" input="stageReset" type="3"><!--关卡 小节关卡重置-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+			<errorcode error="500" actorId="-1"/><!--stage_chapterId_not_exist = 500, -- 章节ID不存在-->
+			<errorcode error="513" actorId="-1"/><!--stage_chapter_not_open = 513, -- 此章节未开启-->
+			<errorcode error="501" actorId="-1"/><!--stage_stageId_not_exist = 501, -- 此章节的关卡ID不存在-->
+			<errorcode error="509" actorId="-1"/><!--stage_stage_not_pass = 509, -- 此章节的关卡未通关-->
+			<errorcode error="512" actorId="-1"/><!--stage_stage_not_reset_count = 512, -- 此章节的关卡重置次数已用完-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>
+		<item id="1070" input="stageBattle" type="3"><!--关卡 关卡战斗(主线 精英)-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+			<errorcode error="517" actorId="39,46"/><!--stage_master_not_sweep = 517, -- 主线扫荡条件不足-->
+			<errorcode error="500" actorId="-1"/><!--stage_chapterId_not_exist = 500, -- 章节ID不存在-->
+			<errorcode error="502" actorId="-1"/><!--stage_prev_chapter_not_pass = 502, -- 请通关前置章节-->
+			<errorcode error="501" actorId="-1"/><!--stage_stageId_not_exist = 501, -- 此章节的关卡ID不存在-->
+			<errorcode error="513" actorId="-1"/><!--stage_chapter_not_open = 513, -- 此章节未开启-->
+			<errorcode error="503" actorId="-1"/><!--stage_prev_stage_not_pass = 503, -- 请通关前置小关-->
+			<errorcode error="504" actorId="1069"/><!--stage_challenge_max_count = 504, -- 已无挑战次数-->
+			<errorcode error="58" actorId="900"/><!--physical_not_enough = 58, -- 体力不足-->
+			<errorcode error="504" actorId="1069"/><!--stage_challenge_max_count = 504, -- 已无挑战次数-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="511" actorId="-1"/><!--stage_stage_not_sweep = 511, -- 此章节的关卡未达3星扫荡-->
+		</item>
+		<item id="1071" input="generalStageBattle" type="3"><!--关卡 关卡战斗(名将)-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="750" actorId="0"/><!--vip_level_not_exist = 750, -- vip数据不存在-->
+			<errorcode error="518" actorId="-1"/><!--stage_general_max_count = 518, -- 当天名将攻打次数已达上限-->
+			<errorcode error="500" actorId="-1"/><!--stage_chapterId_not_exist = 500, -- 章节ID不存在-->
+			<errorcode error="502" actorId="-1"/><!--stage_prev_chapter_not_pass = 502, -- 请通关前置章节-->
+			<errorcode error="501" actorId="-1"/><!--stage_stageId_not_exist = 501, -- 此章节的关卡ID不存在-->
+			<errorcode error="503" actorId="-1"/><!--stage_prev_stage_not_pass = 503, -- 请通关前置小关-->
+			<errorcode error="504" actorId="-1"/><!--stage_challenge_max_count = 504, -- 已无挑战次数-->
+			<errorcode error="58" actorId="900"/><!--physical_not_enough = 58, -- 体力不足-->
+			<errorcode error="519" actorId="-1"/><!--stage_master_chapter_not_pass  	= 519, -- 主线章节通关开启-->
+		</item>
+		<item id="1072" input="dailyStageBattle" type="3"><!--关卡 日常关卡战斗-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="514" actorId="-1"/><!--stage_daily_not_exist = 514, -- 无此日常关卡-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->	
+			<errorcode error="515" actorId="-1"/><!--stage_daily_level_not_exist = 515, -- 无此日常关卡难度等级-->
+			<errorcode error="516" actorId="-1"/><!--stage_daily_stageId_finished = 516, -- 此日常关卡Id已完成-->
+			<errorcode error="58" actorId="900"/><!--physical_not_enough = 58, -- 体力不足-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+		</item>
+		<item id="1073" input="refreshStore" type="3"><!--商店 刷新商店-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="600" actorId="-1"/><!--store_type_error = 600, -- 无此商店类型-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="605" actorId="-1"/><!--store_max_refresh = 605, -- 已无刷新次数-->
+			<errorcode error="104" actorId="47"/><!--item_num_no_enough = 104,--物品个数不足-->
+			<errorcode error="68" actorId="3"/><!--cardSoul_not_enough = 68, -- 将魂不足-->
+			<errorcode error="71" actorId="4"/><!--godSoul_not_enough = 71, -- 神魂不足-->
+			<errorcode error="73" actorId="48"/><!--beastSoul_not_enough = 73, -- 兽魂不足-->
+		</item>
+		<item id="1074" input="manualStoreBuy" type="3"><!--商店 手动商店购买-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="601" actorId="-1"/><!--store_grid_id_error = 601, -- 格子序号错误(1~6)-->
+			<errorcode error="600" actorId="-1"/><!--store_type_error = 600, -- 无此商店类型-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="603" actorId="1073"/><!--store_already_bought = 603, -- 此商品已购买-->
+			<errorcode error="604" actorId="-1"/><!--store_goods_not_exist = 604, -- 购买商品不存在-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="68" actorId="3"/><!--cardSoul_not_enough = 68, -- 将魂不足-->
+			<errorcode error="71" actorId="4"/><!--godSoul_not_enough = 71, -- 神魂不足-->
+			<errorcode error="73" actorId="48"/><!--beastSoul_not_enough = 73, -- 兽魂不足-->
+		</item>
+		<item id="1075" input="timingStoreBuy" type="3"><!--商店 定时商店购买-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="601" actorId="-1"/><!--store_grid_id_error = 601, -- 格子序号错误(1~6)-->
+			<errorcode error="600" actorId="-1"/><!--store_type_error = 600, -- 无此商店类型-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="603" actorId="-1"/><!--store_already_bought = 603, -- 此商品已购买-->
+			<errorcode error="604" actorId="-1"/><!--store_goods_not_exist = 604, -- 购买商品不存在-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>
+		<item id="1076" input="mallBuy" type="3"><!--商城 商城购买-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="350" actorId="-1"/><!--mall_goods_not_exist = 350, -- 商城无此商品ID-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="352" actorId="-1"/><!--mall_goods_buy_count_not_enough = 352, -- 商城此商品可购买数量不足-->
+			<errorcode error="351" actorId="-1"/><!--mall_gift_not_exist = 351, -- 商城无此vip礼包ID-->
+			<errorcode error="353" actorId="46"/><!--mall_gift_vipLevel_not_enough 	= 353, -- 商城此vip礼包购买vip等级不足-->
+			<errorcode error="354" actorId="-1"/><!--mall_gift_already_bought = 354, -- 商城此vip礼包已购买-->
+			<errorcode error="355" actorId="-1"/><!--mall_type_error = 355, -- 商城购买类型错误-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+		</item>
+		<item id="1077" input="heroPump" type="3"><!--商城 抽卡-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="651" actorId="-1"/><!--heroPump_normal_token_not_enough = 651, -- 战将令不足-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="650" actorId="-1"/><!--heroPump_type_error = 650, -- 抽取类型错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>
+		<item id="1078" input="astrology" type="3"><!--商城 占星-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="700" actorId="-1"/><!--astrology_type_error = 700, -- 占星类型错误-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="703" actorId="-1"/><!--astrology_max_count = 703, -- 占星次数不足-->
+		</item>
+		<item id="1079" input="astrologyExchange" type="3"><!--商城 占星兑换-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="701" actorId="-1"/><!--astrology_luck_not_enough = 701, -- 星运值不足-->
+			<errorcode error="76" actorId="0"/><!--hero_proto_not_exist = 76, -- 此英雄原型ID不存在-->
+			<errorcode error="702" actorId="-1"/><!--astrology_camp_proto_not_exist	= 702, -- 占星此阵营无此兑换英雄原型ID-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>
+		<item id="1080" input="fameHallTopRanks" type="3"><!--名人堂 获取置顶排行榜-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="451" actorId="-1"/><!--fameHall_type_error = 451, -- 类型错误(1:等级 2:战力)-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+		</item>
+		<item id="1081" input="fameHallRanks" type="3"><!--名人堂 获取排行榜-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="451" actorId="-1"/><!--fameHall_type_error = 451, -- 类型错误(1:等级 2:战力)-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+		</item>
+		<item id="1082" input="fameHallPraise" type="3"><!--名人堂 点赞-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="451" actorId="-1"/><!--fameHall_type_error = 451, -- 类型错误(1:等级 2:战力)-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="452" actorId="-1"/><!--fameHall_max_praise = 452, -- 已达点赞上限-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="450" actorId="-1"/><!--fameHall_not_praise = 450, -- 不能点赞(非前6名)-->
+		</item>
+		<item id="1083" input="fameHallSignature" type="3"><!--名人堂 签名-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="453" actorId="-1"/><!--fameHall_signature_len_error	= 453, -- 签名长度不符合-->
+			<errorcode error="82" actorId="0"/><!--service_error = 82, -- 服务错误(call error)-->
+			<errorcode error="454" actorId="-1"/><!--fameHall_not_signature = 454, -- 不能签名(非前6名)-->
+		</item>
+		<item id="1084" input="sendMsgMail" type="3"><!--邮件 发送邮件-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="400" actorId="-1"/><!--mail_receiver_not_self = 400, -- 邮件接收者不能是发送者-->
+			<errorcode error="8" actorId="-1"/><!--user_login_nochar = 8,--没有角色-->
+			<errorcode error="401" actorId="-1"/><!--mail_title_length_error = 401, -- 邮件标题长度需4-32字符-->
+			<errorcode error="403" actorId="-1"/><!--mail_content_length_error = 403, -- 邮件内容需4-1024字符-->
+		</item>
+		<item id="1085" input="readMail" type="3"><!--邮件 阅读邮件-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="406" actorId="-1"/><!--mail_not_exist = 406, -- 邮件不存在-->
+		</item>
+		<item id="1086" input="takeMailBonuses" type="3"><!--邮件 领取邮件附件-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="406" actorId="-1"/><!--mail_not_exist = 406, -- 邮件不存在-->
+			<errorcode error="407" actorId="-1"/><!--mail_msg = 407, -- 此邮件为消息邮件-->
+			<errorcode error="408" actorId="-1"/><!--mail_already_took = 408, -- 邮件附件已领取-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+		</item>
+		<item id="1087" input="deleteMail" type="3"><!--邮件 删除邮件-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="406" actorId="-1"/><!--mail_not_exist = 406, -- 邮件不存在-->
+			<errorcode error="409" actorId="-1"/><!--mail_not_take = 409, -- 邮件附件未领取-->
+		</item>
+		<item id="1088" input="viewplayerinfo" type="3"><!--查看玩家信息-->
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->
+			<errorcode error="8" actorId="-1"/><!--user_login_nochar = 8,--不存在该玩家-->
+		</item>				
+		<item id="1090" input="openChest" type="3"><!--开启宝箱-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="100" actorId="50,51,52"/><!--item_not_exist = 100, -- 不存在的物品-->
+			<errorcode error="104" actorId="-1"/><!--item_num_no_enough = 104, -- 物品个数不足-->
+			<errorcode error="107" actorId="0"/><!--item_chest_choose_error = 107, -- 选择宝箱无此选择-->
+			<errorcode error="106" actorId="-1"/><!--item_not_chest = 106, -- 不是宝箱-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>
+		<item id="1091" input="markItem" type="3"><!--标记觉醒道具-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="105" actorId="55"/><!--item_not_proto = 105, -- 无此物品原型ID-->
+			<errorcode error="110" actorId="-1"/><!--item_mark_not_awake = 110, -- 只能标记觉醒道具-->
+		</item>
+		<item id="1092" input="deleteMark" type="3"><!--移除标记觉醒道具-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="105" actorId="55"/><!--item_not_proto = 105, -- 无此物品原型ID-->
+			<errorcode error="110" actorId="-1"/><!--item_mark_not_awake = 110, -- 只能标记觉醒道具-->
+		</item>
+		<item id="1093" input="mergehero" type="3"><!--合成英雄-->
+			<errorcode error="12" actorId="54"/><!--param_error = 12,--参数错误-->
+			<errorcode error="104" actorId="-1"/><!--item_num_no_enough = 104, -- 物品个数不足-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>
+		<item id="1094" input="equipCompound" type="3"><!--合成装备-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="116" actorId="53"/><!--item_equip_piece_not_exist = 116, -- 装备碎片实例不存在-->
+			<errorcode error="18" actorId="0"/><!--data_error = 18,--数据错误-->
+			<errorcode error="80" actorId="-1"/><!--equip_proto_not_exist = 80, -- 装备原型不存在-->
+			<errorcode error="81" actorId="-1"/><!--equip_piece_not_enough = 81, -- 装备碎片不足-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>
+		<!-- 1500 开始运营活动 -->
+		<item id="1500" input="takeLoginWelfareBonuses" type="3"><!--登陆福利活动(1000001) 领取登陆福利-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5015" actorId="-1"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="7001" actorId="-1"/><!--loginWelfare_bonuses_not_exsit = 7001, -- 此天数的登陆奖励不存在-->
+			<errorcode error="7002" actorId="-1"/><!--loginWelfare_choose_bonuses = 7002, -- 此天数的登陆奖励无此选择项-->
+			<errorcode error="5020" actorId="-1"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="7003" actorId="-1"/><!--loginWelfare_days_not_enough = 7003, -- 累计登陆天数不足-->
+			<errorcode error="7004" actorId="-1"/><!--loginWelfare_took_bonuses = 7004, -- 此天数的登陆奖励已领取-->
+		</item>
+		<item id="1501" input="itemExchangeBuy" type="3"><!--道具兑换活动(1000002) 兑换-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5015" actorId="-1"/><!--activity_not_exist = 5015,	-- 活动不存在-->
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5022" actorId="20"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="7050" actorId="-1"/><!--itemExchange_data_not_exsit = 7050, -- 兑换数据不存在-->
+			<errorcode error="7051" actorId="-1"/><!--loginWelfare_choose_not_exsit = 7051, -- 兑换数据奖励选择不存在-->
+			<errorcode error="5020" actorId="-1"/><!--activity_data_not_exist = 5020, -- 玩家活动未参与-->
+			<errorcode error="7052" actorId="-1"/><!--loginWelfare_buy_not_enough = 7052, -- 购买次数不足-->
+		</item>
+		<item id="2000" input="changename" type="3"><!--改名-->
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="84" actorId="-1"/><!--changename_in_cd 				= 84, -- 改名CD中-->
+			<errorcode error="7" actorId="0"/><!--user_string_errorlen = 7,--长度不合法-->
+			<errorcode error="65" actorId="0"/><!--name_has_black = 65,--名字有空格-->
+			<errorcode error="87" actorId="-1"/><!--change_name_after_same 			= 87, -- 一样的名字-->
+			<errorcode error="74" actorId="-1"/><!--name_has_exist 					= 74, -- 名字已经存在-->
+		</item>		
+		<item id="2001" input="changesex" type="3"><!--改性别-->
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->
+			<errorcode error="17" actorId="-1"/><!--user_sex_error = 17,--性别选择错误-->
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="85" actorId="-1"/><!--changesex_in_cd 				= 85, -- 改性别CD中-->
+		</item>	
+		<item id="2002" input="changeheadicon" type="3"><!--改头像-->
+			<errorcode error="12" actorId="-1"/><!--param_error = 12,--参数错误-->
+			<errorcode error="86" actorId="0"/><!--player_has_no_headicon 			= 86, -- 没有此头像-->
+		</item>	
+		<item id="2003" input="addlifestar" type="3"><!--命星-->
+			<errorcode error="26" actorId="39"/><!--level_not_enough = 26,--等级不足-->
+			<errorcode error="119" actorId="-1"/><!--lifestar_is_max 				= 119, -- 已达最大命星-->			
+			<errorcode error="104" actorId="49"/><!--item_num_no_enough 				= 104, -- 物品个数不足-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+		</item>		
+		<item id="2004" input="buyOpenFund" type="3"><!--购买开服基金-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5015" actorId="-1"/><!--activity_not_exist = 5015,	-- 活动不存在-->		
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5022" actorId="39"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="77" actorId="29"/><!--vip_level_not_enough  			= 77, -- Vip等级不足-->			
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="428" actorId="-1"/><!--player_has_buy_openfund = 427,--已经购买过开服基金-->
+			<errorcode error="427" actorId="-1"/><!--player_has_buy_openfund = 427,--已经购买过开服基金-->
+		</item>	
+		<item id="2005" input="takeOpenFundIngot" type="3"><!--领取开服基金-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5015" actorId="-1"/><!--activity_not_exist = 5015,	-- 活动不存在-->		
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5022" actorId="39"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="77" actorId="29"/><!--vip_level_not_enough  			= 77, -- Vip等级不足-->			
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="428" actorId="-1"/><!--player_has_buy_openfund = 427,--已经购买过开服基金-->
+			<errorcode error="427" actorId="-1"/><!--player_has_buy_openfund = 427,--已经购买过开服基金-->
+			<errorcode error="429" actorId="-1"/><!--player_has_take_fundingot = 429,--已经领取过该等级奖励-->
+		</item>		
+		<item id="2006" input="takeOpenFundAllBonuses" type="3"><!--领取开服基金全服奖励-->
+			<errorcode error="12" actorId="0"/><!--param_error = 12,--参数错误-->
+			<errorcode error="5015" actorId="-1"/><!--activity_not_exist = 5015,	-- 活动不存在-->		
+			<errorcode error="5023" actorId="-1"/><!--activity_not_open = 5023, -- 活动未开启-->
+			<errorcode error="5022" actorId="39"/><!--activity_opened_level_not_enough	= 5022, -- 玩家参与活动等级不足-->
+			<errorcode error="77" actorId="29"/><!--vip_level_not_enough  			= 77, -- Vip等级不足-->			
+			<errorcode error="20" actorId="1"/><!--stone_not_enough = 20,--钻石不足-->
+			<errorcode error="102" actorId="-1"/><!--space_no_enough = 102,--包裹空间不足-->
+			<errorcode error="430" actorId="-1"/><!--buy_openfund_count_less = 430,--购买开服基金人数不够-->
+			<errorcode error="431" actorId="-1"/><!--player_has_take_all = 431,--已经领取过该全服奖励-->
+		</item>			
+	</actor>
+	<begin><!--增加6张卡牌-->
+		<item id="13"/>
+		<item id="14"/>
+		<item id="15"/>
+		<item id="16"/>	
+		<item id="17"/>
+		<item id="18"/>	
+		<item id="6"/>
+		<item id="8"/>	
+		<item id="30"/>
+		<item id="31"/>	
+		<item id="32"/>
+		<item id="33"/>			
+		<item id="21"/>
+	</begin>
+	<random>
+		<item id="2000"/>
+		<item id="2001"/>
+		<item id="2002"/>
+		<item id="2003"/>
+		<item id="2004"/>
+		<item id="2005"/>
+		<item id="2006"/>
+		<item id="1000"/><!--主角 卡牌开始-->
+		<item id="1001"/>
+		<item id="1003"/>	
+		<item id="1004"/>	
+		<item id="1005"/>	
+		<item id="1006"/>	
+		<item id="1130"/>
+		<item id="1131"/>	
+		<item id="1132"/>	
+		<item id="1133"/>	
+		<item id="1134"/>		
+		<item id="1135"/>	
+		<item id="1136"/>	
+		<item id="1137"/>	
+		<item id="1138"/>		
+		<item id="1007"/><!--主角 卡牌结束-->
+		<item id="1020"/><!--装备开始-->
+		<item id="1021"/>	
+		<item id="1022"/>
+		<item id="1026"/><!--脱装备-->
+		<item id="1024"/><!--分解装备-->
+		<item id="1025"/><!--分解重生-->
+		<item id="1023"/><!--装备结束-->		
+		<item id="1010"/><!--无双开始-->		
+		<item id="1010"/><!--无双开始-->
+		<item id="1011"/>	
+		<item id="1012"/>
+		<item id="1013"/>
+		<item id="1014"/>
+		<item id="1015"/>
+		<item id="1016"/><!--无双结束-->	
+		<item id="1027"/><!--世界boss开始-->
+		<item id="1028"/>
+		<item id="1029"/>	
+		<item id="1030"/>
+		<item id="1031"/>
+		<item id="1032"/><!--世界boss结束-->
+		<item id="1100"/><!--军团开始-->
+		<item id="1101"/>
+		<item id="1102"/>
+		<item id="1103"/>
+		<item id="1104"/>
+		<item id="1105"/>
+		<item id="1106"/>
+		<item id="1107"/>
+		<item id="1108"/>
+		<item id="1109"/>
+		<item id="1110"/>
+		<item id="1111"/>
+		<item id="1112"/>
+		<item id="1113"/>
+		<item id="1114"/>
+		<item id="1115"/>
+		<item id="1116"/>
+		<item id="1117"/>
+		<item id="1118"/>
+		<item id="1119"/>
+		<item id="1120"/>
+		<item id="1121"/><!--军团结束-->
+		<item id="1032"/><!--世界boss结束-->			
+		<item id="1032"/><!--世界boss结束-->
+		<item id="1033"/><!--夺宝开始-->
+		<item id="1034"/>	
+		<item id="1035"/>
+		<item id="1036"/><!--夺宝结束-->	
+		<item id="1037"/><!--竞技场开始-->
+		<item id="1038"/>	
+		<item id="1039"/>
+		<item id="1040"/><!--竞技场结束-->
+		<item id="1041"/><!--社交开始-->
+		<item id="1042"/>
+		<item id="1043"/>
+		<item id="1044"/>
+		<item id="1045"/>
+		<item id="1046"/>
+		<item id="1047"/>
+		<item id="1048"/>
+		<item id="1049"/>
+		<item id="1050"/>
+		<item id="1051"/><!--社交结束-->
+		<item id="1052"/><!--宝物开始-->
+		<item id="1053"/>	
+		<item id="1054"/>
+		<item id="1055"/>
+		<item id="1056"/>
+		<item id="1057"/>
+		<item id="1058"/><!--宝物结束-->
+		<item id="1059"/><!--每日签到活动开始-->
+		<item id="1060"/><!--每日签到活动结束-->
+		<item id="1061"/><!--体力领取活动-->
+		<item id="1062"/><!--Vip礼包活动开始-->
+		<item id="1063"/><!--Vip礼包活动结束-->
+		<item id="1064"/><!--招财符活动开始-->
+		<item id="1065"/><!--招财符活动结束-->
+		<item id="1066"/><!--精英入侵活动-->
+		<item id="1500"/><!--登陆福利活动开始-->
+		<item id="1501"/><!--道具兑换活动开始-->
+		<item id="1067"/><!-- 关卡开始 -->
+		<item id="1068"/>
+		<item id="1070"/>
+		<item id="1071"/><!-- 关卡结束 -->
+		<item id="1072"/><!-- 日常关卡 -->
+		<item id="1074"/><!-- 商店(手动) -->
+		<item id="1076"/><!-- 商城 -->
+		<item id="1077"/><!-- 商城抽卡 -->
+		<item id="1078"/><!-- 商城占星开始 -->
+		<item id="1079"/><!-- 商城占星结束 -->
+		<item id="1080"/><!-- 名人堂开始 -->
+		<item id="1081"/>
+		<item id="1082"/>
+		<item id="1083"/><!-- 名人堂结束 -->
+		<item id="1084"/><!-- 邮件开始 -->
+		<item id="1085"/>
+		<item id="1086"/>
+		<item id="1087"/><!-- 邮件结束 -->		
+	</random>
+	<cmds>
+		<item id="1000"/><!--主角 卡牌开始-->
+		<item id="1001"/>
+		<item id="1003"/>	
+		<item id="1004"/>	
+		<item id="1005"/>	
+		<item id="1006"/>	
+		<item id="1130"/>
+		<item id="1131"/>	
+		<item id="1132"/>	
+		<item id="1133"/>	
+		<item id="1134"/>		
+		<item id="1135"/>	
+		<item id="1136"/>	
+		<item id="1137"/>	
+		<item id="1138"/>		
+		<item id="1007"/><!--主角 卡牌结束-->
+		<item id="1020"/><!--装备开始-->
+		<item id="1021"/>	
+		<item id="1022"/>
+		<item id="1026"/><!--脱装备-->
+		<item id="1024"/><!--分解装备-->
+		<item id="1025"/><!--分解重生-->
+		<item id="1023"/><!--装备结束-->		
+		<item id="1010"/><!--无双开始-->		
+		<item id="1010"/><!--无双开始-->
+		<item id="1011"/>	
+		<item id="1012"/>
+		<item id="1013"/>
+		<item id="1014"/>
+		<item id="1015"/>
+		<item id="1016"/><!--无双结束-->	
+		<item id="1027"/><!--世界boss开始-->
+		<item id="1028"/>
+		<item id="1029"/>	
+		<item id="1030"/>
+		<item id="1031"/>
+		<item id="1032"/><!--世界boss结束-->
+		<item id="1100"/><!--军团开始-->
+		<item id="1101"/>
+		<item id="1102"/>
+		<item id="1103"/>
+		<item id="1104"/>
+		<item id="1105"/>
+		<item id="1106"/>
+		<item id="1107"/>
+		<item id="1108"/>
+		<item id="1109"/>
+		<item id="1110"/>
+		<item id="1111"/>
+		<item id="1112"/>
+		<item id="1113"/>
+		<item id="1114"/>
+		<item id="1115"/>
+		<item id="1116"/>
+		<item id="1117"/>
+		<item id="1118"/>
+		<item id="1119"/>
+		<item id="1120"/>
+		<item id="1121"/><!--军团结束-->
+		<item id="1032"/><!--世界boss结束-->			
+		<item id="1032"/><!--世界boss结束-->
+		<item id="1033"/><!--夺宝开始-->
+		<item id="1034"/>	
+		<item id="1035"/>
+		<item id="1036"/><!--夺宝结束-->	
+		<item id="1037"/><!--竞技场开始-->
+		<item id="1038"/>	
+		<item id="1039"/>
+		<item id="1040"/><!--竞技场结束-->
+		<item id="1041"/><!--社交开始-->
+		<item id="1042"/>
+		<item id="1043"/>
+		<item id="1044"/>
+		<item id="1045"/>
+		<item id="1046"/>
+		<item id="1047"/>
+		<item id="1048"/>
+		<item id="1049"/>
+		<item id="1050"/>
+		<item id="1051"/><!--社交结束-->
+		<item id="1052"/><!--宝物开始-->
+		<item id="1053"/>	
+		<item id="1054"/>
+		<item id="1055"/>
+		<item id="1056"/>
+		<item id="1057"/>
+		<item id="1058"/><!--宝物结束-->
+		<item id="1059"/><!--每日签到活动开始-->
+		<item id="1060"/><!--每日签到活动结束-->
+		<item id="1061"/><!--体力领取活动-->
+		<item id="1062"/><!--Vip礼包活动开始-->
+		<item id="1063"/><!--Vip礼包活动结束-->
+		<item id="1064"/><!--招财符活动开始-->
+		<item id="1065"/><!--招财符活动结束-->
+		<item id="1066"/><!--精英入侵活动-->
+		<item id="1500"/><!--登陆福利活动开始-->
+		<item id="1501"/><!--道具兑换活动开始-->
+		<item id="1067"/><!-- 关卡开始 -->
+		<item id="1068"/>
+		<item id="1070"/>
+		<item id="1071"/><!-- 关卡结束 -->
+		<item id="1072"/><!-- 日常关卡 -->
+		<item id="1074"/><!-- 商店(手动) -->
+		<item id="1076"/><!-- 商城 -->
+		<item id="1077"/><!-- 商城抽卡 -->
+		<item id="1078"/><!-- 商城占星开始 -->
+		<item id="1079"/><!-- 商城占星结束 -->
+		<item id="1080"/><!-- 名人堂开始 -->
+		<item id="1081"/>
+		<item id="1082"/>
+		<item id="1083"/><!-- 名人堂结束 -->
+		<item id="1084"/><!-- 邮件开始 -->
+		<item id="1085"/>
+		<item id="1086"/>
+		<item id="1087"/><!-- 邮件结束 -->
+		<item id="1090"/><!-- item开始 -->
+		<item id="1091"/>
+		<item id="1092"/>
+		<item id="1093"/>
+		<item id="1094"/><!-- item结束 -->	
+	</cmds>
+</root>

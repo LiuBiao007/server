@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root quickTakeProperty="4" titleMailTitle="%s称号奖励" titleMailContent="恭喜获得%s元宝的称号奖励" officialTitle="%s官职奖励" officalContent="恭喜获得%s官职的奖励" vipTitle="VIP%s奖励" vipContent="恭喜获得VIP%s奖励" learnslotIngot="300,500,700,1500,3000,4000,4000,4000,5000,5000,5000,5000,5000,5000,6000,6000,6000,6000,6000" quickLearnSlot="5" initLearnSlot="1" initLearnTime="180" startFinishTime="180" learnSkillExp="100+a*0+b*0" learnBookExp="10+a*0+b*0" worldNum="20" worldChatCd="2" chatMasterCD="5" chatMasterOfficial="8" blackListCount="100" gov_affairs_init="3" createBonuses="2:1:1,14101001,1,10000,0;1,14101002,1,10000,0;1,14101003,1,10000,0;1,14101004,1,10000,0;1,14101005,1,10000,0;3,1000,10000,0;5,1000,10000,0;6,5000,10000,0" gov_affairs_cd="30" propertyCd="(1+x/10000)*15" propertyMaxCd="30" quickCollection="3" autoBattleMinChapterId="2" killMonsterTime="5" codeMailTitle="兑换成功" codeMailContent="恭喜你获得%s礼包">
+  <officialLevel>
+    <item official="1" bonuses="2:1:4,30000,10000,0" officialName="新晋少尉" desc="&lt;font&gt;1经营商产累积上限提升至3\n&lt;/font&gt;&lt;font&gt;2经营结晶累积上限提升至3\n&lt;/font&gt;&lt;font&gt;3招募魔灵累积上限提升至3\n&lt;/font&gt;&lt;font&gt;4处理政务累积上限提升至3\n&lt;/font&gt;&lt;font&gt;5每日工资10元宝&lt;/font&gt;" trackRecord="5" gov_affairs_max="3" gov_affairs_group="1001" propertyMax="3" salary="10" open_features="" maleIcon="1" femaleIcon="101"/>
+    <item official="2" bonuses="2:1:1,14102001,1,10000,0;1,13010007,1,10000,0" officialName="资深少尉" desc="&lt;font&gt;1解锁术师:马斯特\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至5\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至5\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至5\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至4\n&lt;/font&gt;&lt;font&gt;6每日工资20元宝&lt;/font&gt;" trackRecord="5" gov_affairs_max="4" gov_affairs_group="1002" propertyMax="5" salary="20" open_features="" maleIcon="2" femaleIcon="102"/>
+    <item official="3" bonuses="2:1:1,14102002,1,10000,0" officialName="新晋中尉" desc="&lt;font&gt;1解锁术师:丹尼\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至7\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至7\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至7\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至5\n&lt;/font&gt;&lt;font&gt;6每日工资30元宝&lt;/font&gt;" trackRecord="240" gov_affairs_max="5" gov_affairs_group="1003" propertyMax="7" salary="30" open_features="" maleIcon="3" femaleIcon="103"/>
+    <item official="4" bonuses="2:1:1,14102003,1,10000,0" officialName="资深中尉" desc="&lt;font&gt;1解锁术师:杰尔索\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至9\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至9\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至9\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至6\n&lt;/font&gt;&lt;font&gt;6每日工资40元宝&lt;/font&gt;" trackRecord="480" gov_affairs_max="6" gov_affairs_group="1004" propertyMax="9" salary="40" open_features="" maleIcon="4" femaleIcon="104"/>
+    <item official="5" bonuses="2:1:1,14102004,1,10000,0" officialName="新晋上尉" desc="&lt;font&gt;1解锁术师:阿鲁卡多\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至11\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至11\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至11\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至7\n&lt;/font&gt;&lt;font&gt;6每日工资50元宝&lt;/font&gt;" trackRecord="720" gov_affairs_max="7" gov_affairs_group="1005" propertyMax="11" salary="50" open_features="" maleIcon="5" femaleIcon="105"/>
+    <item official="6" bonuses="2:1:1,14102005,1,10000,0" officialName="资深上尉" desc="&lt;font&gt;1解锁术师:朱力欧\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至13\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至13\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至13\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至8\n&lt;/font&gt;&lt;font&gt;6每日工资60元宝&lt;/font&gt;" trackRecord="1200" gov_affairs_max="8" gov_affairs_group="1006" propertyMax="13" salary="60" open_features="" maleIcon="6" femaleIcon="106"/>
+    <item official="7" bonuses="2:1:1,14102006,1,10000,0" officialName="新晋中佐" desc="&lt;font&gt;1解锁术师:古拉曼\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至15\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至15\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至15\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至9\n&lt;/font&gt;&lt;font&gt;6每日工资70元宝&lt;/font&gt;" trackRecord="1920" gov_affairs_max="9" gov_affairs_group="1007" propertyMax="15" salary="70" open_features="" maleIcon="7" femaleIcon="107"/>
+    <item official="8" bonuses="2:1:1,14102007,1,10000,0" officialName="资深中佐" desc="&lt;font&gt;1解锁术师:亨利\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至17\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至17\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至17\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至10\n&lt;/font&gt;&lt;font&gt;6每日工资80元宝&lt;/font&gt;" trackRecord="3120" gov_affairs_max="10" gov_affairs_group="1008" propertyMax="17" salary="80" open_features="" maleIcon="8" femaleIcon="108"/>
+    <item official="9" bonuses="2:1:1,14102008,1,10000,0" officialName="新晋大佐" desc="&lt;font&gt;1解锁术师:加菲尔\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至19\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至19\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至19\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至11\n&lt;/font&gt;&lt;font&gt;6每日工资90元宝&lt;/font&gt;" trackRecord="5540" gov_affairs_max="11" gov_affairs_group="1009" propertyMax="19" salary="90" open_features="" maleIcon="9" femaleIcon="109"/>
+    <item official="10" bonuses="2:1:1,14102009,1,10000,0" officialName="资深大佐" desc="&lt;font&gt;1解锁术师:温士顿\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至21\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至21\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至21\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至12\n&lt;/font&gt;&lt;font&gt;6每日工资100元宝&lt;/font&gt;" trackRecord="9530" gov_affairs_max="12" gov_affairs_group="1010" propertyMax="21" salary="100" open_features="" maleIcon="10" femaleIcon="110"/>
+    <item official="11" bonuses="2:1:1,14102010,1,10000,0" officialName="新晋准将" desc="&lt;font&gt;1解锁术师:赞帕诺\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至23\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至23\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至23\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至13\n&lt;/font&gt;&lt;font&gt;6每日工资110元宝&lt;/font&gt;" trackRecord="16580" gov_affairs_max="13" gov_affairs_group="1011" propertyMax="23" salary="110" open_features="" maleIcon="11" femaleIcon="111"/>
+    <item official="12" bonuses="2:1:1,14102011,1,10000,0" officialName="资深准将" desc="&lt;font&gt;1解锁术师:尤利\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至25\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至25\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至25\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至14\n&lt;/font&gt;&lt;font&gt;6每日工资120元宝&lt;/font&gt;" trackRecord="28720" gov_affairs_max="14" gov_affairs_group="1012" propertyMax="25" salary="120" open_features="" maleIcon="12" femaleIcon="112"/>
+    <item official="13" bonuses="2:1:1,14102012,1,10000,0" officialName="新晋少将" desc="&lt;font&gt;1解锁术师:海因凯尔\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至27\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至27\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至27\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至15\n&lt;/font&gt;&lt;font&gt;6每日工资130元宝&lt;/font&gt;" trackRecord="49830" gov_affairs_max="15" gov_affairs_group="1013" propertyMax="27" salary="130" open_features="" maleIcon="13" femaleIcon="113"/>
+    <item official="14" bonuses="2:1:1,14102013,1,10000,0" officialName="资深少将" desc="&lt;font&gt;1解锁术师:莎拉\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至29\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至29\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至29\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至16\n&lt;/font&gt;&lt;font&gt;6每日工资140元宝&lt;/font&gt;" trackRecord="94270" gov_affairs_max="16" gov_affairs_group="1014" propertyMax="29" salary="140" open_features="" maleIcon="14" femaleIcon="114"/>
+    <item official="15" bonuses="2:1:1,14102014,1,10000,0" officialName="新晋中将" desc="&lt;font&gt;1解锁术师:德尔杰特\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至31\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至31\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至31\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至17\n&lt;/font&gt;&lt;font&gt;6每日工资150元宝&lt;/font&gt;" trackRecord="187300" gov_affairs_max="17" gov_affairs_group="1015" propertyMax="31" salary="150" open_features="" maleIcon="15" femaleIcon="115"/>
+    <item official="16" bonuses="2:1:1,14102015,1,10000,0" officialName="资深中将" desc="&lt;font&gt;1解锁术师:塔利乌斯\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至33\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至33\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至33\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至18\n&lt;/font&gt;&lt;font&gt;6每日工资160元宝&lt;/font&gt;" trackRecord="394240" gov_affairs_max="18" gov_affairs_group="1016" propertyMax="33" salary="160" open_features="" maleIcon="16" femaleIcon="116"/>
+    <item official="17" bonuses="2:1:1,14102016,1,10000,0" officialName="新晋上将" desc="&lt;font&gt;1解锁术师:瑟尔\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至35\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至35\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至35\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至19\n&lt;/font&gt;&lt;font&gt;6每日工资170元宝&lt;/font&gt;" trackRecord="872340" gov_affairs_max="19" gov_affairs_group="1017" propertyMax="35" salary="170" open_features="" maleIcon="17" femaleIcon="117"/>
+    <item official="18" bonuses="2:1:1,14102017,1,10000,0" officialName="资深上将" desc="&lt;font&gt;1解锁术师:彼得\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至37\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至37\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至37\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至20\n&lt;/font&gt;&lt;font&gt;6每日工资180元宝&lt;/font&gt;" trackRecord="2026540" gov_affairs_max="20" gov_affairs_group="1018" propertyMax="37" salary="180" open_features="" maleIcon="18" femaleIcon="118"/>
+    <item official="19" bonuses="2:1:4,10000,10000,0" officialName="五星上将" desc="&lt;font&gt;1奖励元宝:1000\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至39\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至39\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至39\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至21\n&lt;/font&gt;&lt;font&gt;6每日工资190元宝&lt;/font&gt;" trackRecord="4928110" gov_affairs_max="21" gov_affairs_group="1019" propertyMax="39" salary="190" open_features="" maleIcon="19" femaleIcon="119"/>
+    <item official="20" bonuses="2:1:4,20000,10000,0" officialName="特级大将" desc="&lt;font&gt;1奖励元宝:2000\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至41\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至41\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至41\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至22\n&lt;/font&gt;&lt;font&gt;6每日工资200元宝&lt;/font&gt;" trackRecord="12525320" gov_affairs_max="22" gov_affairs_group="1020" propertyMax="41" salary="200" open_features="" maleIcon="20" femaleIcon="120"/>
+    <item official="21" bonuses="2:1:4,30000,10000,0" officialName="大总统" desc="&lt;font&gt;1奖励元宝:3000\n&lt;/font&gt;&lt;font&gt;2经营商产累积上限提升至43\n&lt;/font&gt;&lt;font&gt;3经营结晶累积上限提升至43\n&lt;/font&gt;&lt;font&gt;4招募魔灵累积上限提升至43\n&lt;/font&gt;&lt;font&gt;5处理政务累积上限提升至23\n&lt;/font&gt;&lt;font&gt;6每日工资210元宝&lt;/font&gt;" trackRecord="33206420" gov_affairs_max="23" gov_affairs_group="1021" propertyMax="43" salary="210" open_features="" maleIcon="21" femaleIcon="121"/>
+  </officialLevel>
+  <title>
+    <item id="10001" name="缀命炼金术师" desc="区内竞技场第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1001" time="48" ingot="500" priority="1"/>
+    <item id="10002" name="闪耀炼金术师" desc="区内势力榜第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1002" time="48" ingot="500" priority="2"/>
+    <item id="10003" name="雷电炼金术师" desc="区内亲密榜第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1003" time="48" ingot="500" priority="3"/>
+    <item id="10004" name="植物炼金术师" desc="区内关卡榜第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1004" time="48" ingot="500" priority="4"/>
+    <item id="10005" name="红莲炼金术师" desc="区内叹息之丘活动第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1005" time="48" ingot="500" priority="5"/>
+    <item id="10006" name="冰冻炼金术师" desc="区内宴会榜第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1006" time="48" ingot="500" priority="6"/>
+    <item id="10007" name="铁血炼金术师" desc="区内先士消耗榜第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1007" time="48" ingot="500" priority="7"/>
+    <item id="10008" name="豪腕炼金术师" desc="区内结晶消耗榜第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1008" time="48" ingot="500" priority="8"/>
+    <item id="10009" name="焰之炼金术师" desc="区内魔灵消耗榜第一获得，使用后每天领500元宝，有效期2天。" icon="tli_1009" time="48" ingot="500" priority="9"/>
+    <item id="10010" name="钢之炼金术师" desc="跨服亲密榜第一获得，使用后每天领500元宝，有效期7天。" icon="tli_1010" time="168" ingot="500" priority="10"/>
+  </title>
+  <power2soulmate>
+    <item power="5000" soulmateId="13000020"/>
+    <item power="200000" soulmateId="13000021"/>
+    <item power="500000" soulmateId="13000022"/>
+    <item power="1000000" soulmateId="13000023"/>
+  </power2soulmate>
+  <govAffairsGroup>
+    <affairs group="1001">
+      <item id="1" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="4910" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="1"/>
+      <item id="2" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="4910" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="1"/>
+      <item id="3" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="5013" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="1"/>
+    </affairs>
+    <affairs group="1002">
+      <item id="4" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="7365" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="2"/>
+      <item id="5" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="7365" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="2"/>
+      <item id="6" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="7519" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="2"/>
+    </affairs>
+    <affairs group="1003">
+      <item id="7" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="11047" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="3"/>
+      <item id="8" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="11047" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="3"/>
+      <item id="9" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="11278" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="3"/>
+    </affairs>
+    <affairs group="1004">
+      <item id="10" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="16570" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="4"/>
+      <item id="11" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="16570" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="4"/>
+      <item id="12" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="16917" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="4"/>
+    </affairs>
+    <affairs group="1005">
+      <item id="13" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="24855" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="5"/>
+      <item id="14" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="24855" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="5"/>
+      <item id="15" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="25375" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="5"/>
+    </affairs>
+    <affairs group="1006">
+      <item id="16" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="37282" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="6"/>
+      <item id="17" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="37282" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="6"/>
+      <item id="18" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="38062" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="6"/>
+    </affairs>
+    <affairs group="1007">
+      <item id="19" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="55923" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="7"/>
+      <item id="20" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="55923" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="7"/>
+      <item id="21" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="57093" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="7"/>
+    </affairs>
+    <affairs group="1008">
+      <item id="22" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="83884" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="8"/>
+      <item id="23" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="83884" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="8"/>
+      <item id="24" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="85639" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="8"/>
+    </affairs>
+    <affairs group="1009">
+      <item id="25" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="125826" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="9"/>
+      <item id="26" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="125826" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="9"/>
+      <item id="27" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="128458" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="9"/>
+    </affairs>
+    <affairs group="1010">
+      <item id="28" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="188739" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="10"/>
+      <item id="29" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="188739" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="10"/>
+      <item id="30" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="192687" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="10"/>
+    </affairs>
+    <affairs group="1011">
+      <item id="31" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="188739" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="11"/>
+      <item id="32" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="188739" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="11"/>
+      <item id="33" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="192687" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="11"/>
+    </affairs>
+    <affairs group="1012">
+      <item id="34" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="207612" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="12"/>
+      <item id="35" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="207612" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="12"/>
+      <item id="36" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="211955" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="12"/>
+    </affairs>
+    <affairs group="1013">
+      <item id="37" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="228373" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="13"/>
+      <item id="38" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="228373" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="13"/>
+      <item id="39" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="233150" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="13"/>
+    </affairs>
+    <affairs group="1014">
+      <item id="40" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="251210" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="14"/>
+      <item id="41" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="251210" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="14"/>
+      <item id="42" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="256465" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="14"/>
+    </affairs>
+    <affairs group="1015">
+      <item id="43" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="276331" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="15"/>
+      <item id="44" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="276331" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="15"/>
+      <item id="45" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="282111" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="15"/>
+    </affairs>
+    <affairs group="1016">
+      <item id="46" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="303964" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="16"/>
+      <item id="47" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="303964" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="16"/>
+      <item id="48" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="310322" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="16"/>
+    </affairs>
+    <affairs group="1017">
+      <item id="49" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="334360" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="17"/>
+      <item id="50" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="334360" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="17"/>
+      <item id="51" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="341354" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="17"/>
+    </affairs>
+    <affairs group="1018">
+      <item id="52" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="367796" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="18"/>
+      <item id="53" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="367796" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="18"/>
+      <item id="54" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="375489" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="18"/>
+    </affairs>
+    <affairs group="1019">
+      <item id="55" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="404575" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="19"/>
+      <item id="56" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="404575" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="19"/>
+      <item id="57" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="413037" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="19"/>
+    </affairs>
+    <affairs group="1020">
+      <item id="58" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="445032" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="20"/>
+      <item id="59" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="445032" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="20"/>
+      <item id="60" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="454340" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="20"/>
+    </affairs>
+    <affairs group="1021">
+      <item id="61" desc="有小商贩送来银两，请大人多关照。" descA="贪赃枉法，本官怎么会做，赶他走~" bonusesTypeA="3" bonusesValueA="489535" descB="竟敢公然行贿，抓起来" bonusesTypeB="7" bonusesValueB="21"/>
+      <item id="62" desc="有少佐勾结人造人，进行惨无人道的实验，如今已被抓获请大人审理。" descA="单独传唤证人，私下审问" bonusesTypeA="5" bonusesValueA="489535" descB="传唤证人，公开审问" bonusesTypeB="7" bonusesValueB="21"/>
+      <item id="63" desc="有人造人当街行凶。已被抓获" descA="暂时关押" bonusesTypeA="6" bonusesValueA="499774" descB="公开审理，明正典刑" bonusesTypeB="7" bonusesValueB="21"/>
+    </affairs>
+  </govAffairsGroup>
+  <sex>
+    <item sex="1" firstName="贾斯丁,爱曼纽,堤姆,好尔德,尼克,乔,哈利,伊西多,艾德,杰夫,赫尔曼,昆尼尔,锡得尼,摩顿,杰拉尔,奥狄斯,扎克利,麦基,哈瑞斯,马休,艾维斯,欧尼斯,邓肯,诺亚,雨果,维克多,爱罗伊,维克,纳特,哲罗姆,帕特里,吉尔伯,诺顿,利瓦伊,额尔,艾萨克,哈帝,哈罗德,莱特,高德佛,格罗佛,理查德,麦伦,科克,凯利,科特,托德,西奥多,昆顿,鲁伯特,奥斯蒙,尼尔,马克,米契尔,科尔温,狄伦,列夫,加布力,马克西,伊莱,泰伦,凯尔,乔伊斯,埃尔维,肯尼迪,穆尔,昆西,约克,威廉,刘易斯,爱格伯,海曼,路德,莱尔,法兰林,道格拉,英格马,尔文,费兹捷,泰德,摩西,唐,爱德华,尤莱亚,摩帝马,约翰,马勒第,洛克,林恩,罗得里,雷克斯,哈伦,哥达,普雷斯,华纳,杰理,艾凡,奈宝尼,杰勒米,里斯特,门罗,维托,史帝夫,休伯特,詹姆士,霍伯特,马特,哈丽雅,奥玛,奥特,富宾恩,格雷格,伊恩,唐恩,费迪南,盖文,伟兹,韦伯斯,波特,弗朗西,席尔,雷契尔,威弗列,米路,古斯塔,依夫,戴里克,凯文,杰西,劳伦斯,艾勒,韦恩,欧恩,易莱哲,尤里西,琼纳斯,赫伯特,韦尔伯,威利,撒克逊,马克斯,奥斯卡,鲁宾,约瑟夫,劳瑞,汤姆,泰勒,尼克勒,陆斯恩,费奇,爱德温,法兰克,昆,韦勃,唐纳修,尤金,奥利佛,麦克,汉弗莱,盖理,日杰夫,维维安,史帝文,马伦,肯尼思,马歇尔,奈登,爱德格,朱利安,福特,艾理斯,希尔保,林顿,曼特裘,华德,汉特,耶鲁,爱迪生,杰森,普利莫,罗宾,勒斯,利奥,阿普顿,哈里,弗吉尔,雅各布,帝福尼,路易斯,格雷戈,莫雷,尼尔森,赛门,金,海拾兹,金姆,葛兰,米兰,泰勒,海勒,罗德尼,纽曼,范伦铁,曼德尔,伊登,得文,麦克,享利,杰,伦农,菲利普,塔伯,盖,杰弗里,维斯特,马丁,穆尔,帕克,麦尔斯,裴吉,汤尼,史丹,哈维,强纳生,欧格登,朱利尔,雷尔夫,山姆,山迪,托比,摩里斯,诺尔,奥斯本,肖恩,吉姆,玛希,伊诺克,戈登,唐纳德,海登,伊里亚,保罗,英格兰,汉米敦,马克斯,史丹尼,史考特,瓦尔特,莫林,贾里德,帝摩斯,修,昆特,杜克,培迪,蓝斯,奈哲尔,史丹佛,马里奥,弗雷得,肯特,范伦丁,乔休尔,伦纳德,弗纳尔,加尔,诺曼,锡德,马文,乔治,葛里菲,艾德蒙,文森,杰佛理,托玛士,威尔,霍尔,韦尔,马卡斯,霍根,爱尔顿,蓝伯特,基思,辛普森,爱尔玛,温士顿,特洛伊,哈利,费利克,科尔,路,温德尔,摩尔根,莱安,贾艾斯,奥利尔,托拜厄,利奥波,泰伦斯,肯恩,赖昂内,吉恩,罗德,史都华,奥斯维,力克,德维特,夕巴斯,杰克,希拉里,狄克,密克,鲁道夫,杰夫,杜鲁,伦恩,伊夫力,多明尼,艾利克,麦尔肯,摩菲,罗伯特," midName="伦道夫,克里斯,肯,奥利弗,艾萨克,利奥波,亚瑟,加百利,约翰,普雷达,加菲尔,范,凯斯,霍恩海,采尼,科林,阿尔弗,凯文,卡斯帕,达格拉,迈克尔,加里,史蒂文,安东尼,雷纳德,杰克逊,詹森,格林,霍华德,阿姆斯,赖安,列得,修兹,卫斯理,克莱顿,罗宾逊,安格斯,肖恩,埃里克,麦克德,布伦特,萨姆,菲比,劳瑞,理查德,布拉德,斯图亚,布兰特,劳伦特,汤姆,托马斯,艾略特,亚历山,利安,丹尼尔,丹尼,阿加,艾德里,鲍伯,米拉,奥斯卡,特林戈,泰勒,雅各布,基诺,麦克,劳伦,索因斯,马修,斯坦利,路易,肯尼斯,马库斯,约书亚,艾尔利,杰弗瑞,德里克,哈里森,劳伦斯,安德鲁,道格拉,弗兰克,爱德华,罗斯,亨利,亚伦,洛克,尼尔,肖恩,雷欧,布莱恩,保罗,乔,卡迪斯,彼得,斯考特,汤米,大卫,布兰登,艾德文,阿尔瓦,科兹莫,波贾,兰斯,弗朗西,威廉,里奇,伍兹,菲利,本,昆廷,埃德加,卡尔,托尼,马可,拉里,比尔,马克,斯派克,所罗门,杰罗姆,卢克,蒂莫西,雨果,哈勃克,罗伊,吉姆,罗杰,乔治,约瑟夫,弗农,奥斯汀,亚伯,J,吉米,马科斯,西蒙,伊格纳,马丁,蒂安,休斯,玛斯坦,杰瑞,帕特里,兰德尔,洛克贝,尼古拉,雷德,克里斯,格林顿,亚历克,杰西,布鲁斯,李,杰克,里库尔,托马斯,马西,肯尼,艾伯特,塞缪尔,沃伦,埃尔维,罗伯特,菲利普,斯帕克,埃文,多夫,加比,汉克,本森,弗瑞德,伊凡,文森特,贾斯汀,查尔斯,萨米,兰迪,凯里,詹姆士,唐纳德,罗宾,特里,格兰,加文,斯宾塞,雷克斯,特伦斯,富兰克,安迪,劳瑞恩,约翰尼,亚伯拉,金布利,马尔斯,艾伦,西德尼,丹尼斯,亚当,克里斯,弗恩,霍克艾," lastName=""/>
+    <item sex="2" firstName="劳拉,卡瑞娜,格瑞塔,乔伊斯,伊丽莎,杰奎琳,安妮,科瑞斯,弗里达,达芙妮,格瑞丝,莰蒂丝,卡罗琳,安吉拉,海伦娜,布伦达,乔斯林,达茜,安妮,艾维,爱伦,爱丝特,黛米,伊迪丝,温蒂,莉迪娅,维姬,安,西娅,克莱门,特丽斯,温妮,朱恩,简,琳达,贝亚特,海蒂,辛迪,安伯,爱沙拉,凯莉,克莉丝,艾莉森,阿维娃,朱迪丝,艾莉,黛布拉,约瑟芬,詹米,乔安娜,格温多,杰西卡,格拉蒂,尤杜拉,沙琳,德洛丽,英格丽,安吉莉,切莉,康斯坦,克里汀,伊迪萨,艾丽莎,维多利,乔茜同,佐伊,艾丽丝,贝基,朱蒂,弗雷德,朱莉安,伊温妮,雪莉尔,笆笆拉,克里蒂,阿曼达,凯丽,海伦,康妮,丽莎,艾莉尔,基蒂,克里斯,布兰奇,赫柏,艾许莉,詹妮弗,蒂娜,伊娃,姬恩,堂娜,旺达,菲奥纳,薇薇安,黛博拉,吉莉安,安尼塔,艾米,弗郎西,詹妮,特尔,伊莱恩,琼,伊芙,朱莉娅,莱瑞拉,乔伊,卡门,黛安娜,艾美,芬妮,贝蒂,艾琳,埃拉,杰西,汉娜,安德莉,伊薇特,克劳迪,莉兹,朱莉,克劳瑞,戴茜,桃瑞丝,阿普里,科瑞恩,埃莉诺,格罗瑞,卡米尔,尤兰达,莉娜,邦妮,爱斯特,夏洛特,温妮莎,黛比,莉莲,科拉,安吉莉,珍妮特,吉娜,爱丽丝,姬尔,阿纳斯,里卡,卡桑德,艾琳娜,凯罗尔," midName="伦道夫,克里斯,肯,奥利弗,艾萨克,利奥波,亚瑟,加百利,约翰,普雷达,加菲尔,范,凯斯,霍恩海,采尼,科林,阿尔弗,凯文,卡斯帕,达格拉,迈克尔,加里,史蒂文,安东尼,雷纳德,杰克逊,詹森,格林,霍华德,阿姆斯,赖安,列得,修兹,卫斯理,克莱顿,罗宾逊,安格斯,肖恩,埃里克,麦克德,布伦特,萨姆,菲比,劳瑞,理查德,布拉德,斯图亚,布兰特,劳伦特,汤姆,托马斯,艾略特,亚历山,利安,丹尼尔,丹尼,阿加,艾德里,鲍伯,米拉,奥斯卡,特林戈,泰勒,雅各布,基诺,麦克,劳伦,索因斯,马修,斯坦利,路易,肯尼斯,马库斯,约书亚,艾尔利,杰弗瑞,德里克,哈里森,劳伦斯,安德鲁,道格拉,弗兰克,爱德华,罗斯,亨利,亚伦,洛克,尼尔,肖恩,雷欧,布莱恩,保罗,乔,卡迪斯,彼得,斯考特,汤米,大卫,布兰登,艾德文,阿尔瓦,科兹莫,波贾,兰斯,弗朗西,威廉,里奇,伍兹,菲利,本,昆廷,埃德加,卡尔,托尼,马可,拉里,比尔,马克,斯派克,所罗门,杰罗姆,卢克,蒂莫西,雨果,哈勃克,罗伊,吉姆,罗杰,乔治,约瑟夫,弗农,奥斯汀,亚伯,J,吉米,马科斯,西蒙,伊格纳,马丁,蒂安,休斯,玛斯坦,杰瑞,帕特里,兰德尔,洛克贝,尼古拉,雷德,克里斯,格林顿,亚历克,杰西,布鲁斯,李,杰克,里库尔,托马斯,马西,肯尼,艾伯特,塞缪尔,沃伦,埃尔维,罗伯特,菲利普,斯帕克,埃文,多夫,加比,汉克,本森,弗瑞德,伊凡,文森特,贾斯汀,查尔斯,萨米,兰迪,凯里,詹姆士,唐纳德,罗宾,特里,格兰,加文,斯宾塞,雷克斯,特伦斯,富兰克,安迪,劳瑞恩,约翰尼,亚伯拉,金布利,马尔斯,艾伦,西德尼,丹尼斯,亚当,克里斯,弗恩,霍克艾," lastName=""/>
+  </sex>
+</root>

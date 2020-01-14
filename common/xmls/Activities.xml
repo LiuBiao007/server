@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <activity id="100" name="日常副本" desc="日常副本" type="1" detail="日常副本" needLevel="1" icon="1" time="00:00-23:59" rewardIngot="20" rewardTrackRecord="60"/>
+  <activity id="101" name="边境入侵" desc="日常副本" type="1" detail="日常副本" needLevel="1" icon="1.iocn" time="12:00-14:00;20:00-21:00">
+  </activity>
+</root>
