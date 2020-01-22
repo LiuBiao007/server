@@ -13,6 +13,7 @@ end
 local name2data     = {}
 local user2data     = {}
 local player2data   = {}
+local playerId2forbid = {}
 --初始化userid serverid player
 function userCenter:initData()
 
@@ -41,11 +42,18 @@ function userCenter:registUser(v)
     local pkey = v.guid
     assert(not player2data[pkey], string.format("error pkey %s.", pkey))
     player2data[pkey] = v
+    playerId2forbid[pkey] = v.forbidTime
 
     local name = assert(v.name)
     assert(not name2data[name], string.format("error name %s.", name))
     name2data[name] = v
+
+    redisdb:set("playerName:" .. name, pkey)
 end    
+
+function userCenter:setForbidTime(playerId, time)
+    playerId2forbid[playerId] = time
+end 
 
 function userCenter:modify(playerId, key, value)
 
@@ -70,6 +78,11 @@ function userCenter:checkUserExist(userid, serverid)
     return false 
 end	
 
+function userCenter:getPlayerIdByUserAndServerId(userid, serverid)
+
+    return  user2data[genUserKey(userid, serverid)]
+end    
+
 function userCenter:checkPlayerExist(playerId)
 
 	return player2data[playerId] and true or false
@@ -78,5 +91,28 @@ end
 function userCenter:checkNameExist(name)
 
     return name2data[name] and true or false
+end    
+
+function userCenter:getPlayerByName(name)
+    return name2data[name]
+end    
+
+function userCenter:getPlayerIdByName(name)
+
+    local s = name2data[name]
+    if s then return s.guid end
+    return nil
+end    
+--后台模糊查询
+function userCenter:getPlayerIdsByName(name)
+    
+    local playerIds = {}
+    local header = "playerName:*" .. name .. "*"
+    local playerNames = redisdb:keys(header)
+    for k, v in ipairs(playerNames or {}) do 
+        table.insert(playerIds, redisdb:get(v))
+    end
+    
+    return playerIds
 end    
 return userCenter

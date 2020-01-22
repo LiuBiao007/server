@@ -4,6 +4,7 @@ local type          = type
 local assert        = assert
 local string_gsub   = string.gsub
 local string_format = string.format
+local tool          = require "util.tool"
 local db            = require "coredb.query"
 local businessObject = require "objects.businessObject"
 local mailCenter    = class("mailCenter", businessObject)
@@ -77,7 +78,7 @@ function mailCenter:sendSystemMailEx(sourceType, senderName, receiverId, title, 
 
     return 0
 end
-                        
+          
 function mailCenter:sendSystemMail(params)
 
     if type(params) ~= "table" or #params < 4 then
@@ -90,7 +91,7 @@ function mailCenter:sendSystemMail(params)
     local content = params[4]
     local attaches = params[5] or ""
 
-    local isExist = tool.isExistPlayerId(receiverId, redisdb)
+    local isExist = self:checkPlayerExist(receiverId)    
     if not isExist then
         return errorcode.user_login_nochar
     end
@@ -131,7 +132,7 @@ function mailCenter:sendMsgMail(senderId, senderName, receiverId, title, content
 	end
 
 	local mail = {
-        id          = _guidMan:createguid(gameconst.serialtype.mail_guid),
+        id          = guidMan.createGuid(gameconst.serialtype.mail_guid),
         type        = 0,    -- 0:消息邮件  1:奖励邮件
         senderId    = senderId,
         senderName  = senderName,
@@ -140,11 +141,14 @@ function mailCenter:sendMsgMail(senderId, senderName, receiverId, title, content
         sourceType	= 0,	-- 0:玩家
         title       = string_gsub(title, "'", "\""),
         content     = string_gsub(content, "'", "\""),
-        createTime  = tool.getCurTime(),
+        createTime  = os.getCurTime(),
         attaches    = "",
     }
 
-
+    local o = self.playerMan:sendEvent(receiverId, "insertMail", mail)
+    if o then--process outline logic
+       o:name("mail"):set(mail)
+    end
 end
 
 return mailCenter

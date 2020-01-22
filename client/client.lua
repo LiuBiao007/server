@@ -8,7 +8,6 @@ local sends 	= require "sends"
 local login 	= require "login"
 local admin 	= require "admin"
 local mylog 	= require "base.mylog"
-local error2str  	= require "error2str"
 local sharedata 	= require "sharedata"
 local ParserRobot 	= require "robot.ParserRobot"
 local host 			= sproto.new(gameproto.s2c):host "package"
@@ -32,7 +31,7 @@ local function addShow()
 	local keys = {"showActivity", "showItem", "showPlayer"}
 	for _, key in pairs(keys) do
 
-		local module = require(key)
+		local module = require("show." .. key)
 		for k, v in pairs(module) do
 
 			assert(not show[k], string.format("error show k %s module %s.", k, key))
@@ -41,6 +40,14 @@ local function addShow()
 	end	
 end	
 addShow()
+local error2str = {}
+for line in io.lines("../common/errorcode.lua") do
+
+	local code, msg = line:match("%w%s*=%s*(%d+)%s*,%s*%-%-%s*(.*)")
+	if code and msg then
+		error2str[tonumber(code)] = msg
+	end	
+end	
 
 local userId,rxmls,player,xmls,robot
 
@@ -107,7 +114,6 @@ local function print_response(session, args)
 		return
 	end
 
-print("args = ", string.dump(args), res.name)
 	if args.errorcode > 0 then
 		return print(error2str[args.errorcode])
 	end	
@@ -261,19 +267,19 @@ end
 
 local input_arr = {
 
-	--"createcharcter ZHANGJIN2 1 ZHANGJIN2 10000 10005",
+	--"createcharcter ZHANGJIN15 1 ZHANGJIN15 10000 10005",
 	--"additem 15000020 10",
 	--"additem 15000021 11",
 	--"addIngot 100",
 	--"addGoldCoin 99"
-	"entergame ZHANGJIN2 10005",
+	--"entergame ZHANGJIN15 10005",
 	--"dkick 1009099 2 9 18",
-	"playeractivity 2 3 4",
-	"uniqueactivity 3 8 100",
-	"addIngot 100",
-	"mkick 12 19 118",
-	"debugtime 23 59 55"
-	--"entergame ZHANGJIN2 10005"
+	--"playeractivity 2 3 4",
+	--"uniqueactivity 3 8 100",
+	--"addIngot 100",
+	--"mkick 12 19 118",
+	--"debugtime 23 59 55",
+	--"entergame ZHANGJIN2 10005",
 	--"outgame"
 }
 

@@ -33,7 +33,7 @@ function outline:pk(prikey)
 	self.prikeyvalue = prikey
 	return self
 end
-
+--离线获取数据 可以获取单个字段也可以获取完整的数据
 function outline:get(...)
 
 	local p = {...}
@@ -94,7 +94,7 @@ function outline:checkSet(t)
 	local header = self.redisHeader:getHeader(prikey)
 	return playerId, header
 end	
-
+--用于新增
 function outline:set(t)
 
 	local playerId, header = self:checkSet(t)
@@ -106,20 +106,22 @@ function outline:set(t)
 		self.savedb:save(t, playerId)
 	end	
 end
+--用于修改
+function outline:rawset(t, prikeyvalue)
 
-function outline:rawset(t, prikey, prikeyvalue)
-
-	self.prikeyvalue = prikeyvalue
+	if not self.prikeyvalue then
+		self.prikeyvalue = assert(prikeyvalue)
+	end	
 	local playerId, header = self:checkSet(t)
 	if self.playerMan:isFullData(playerId) then
 
 		self.saveRedis:rawsave(header, t, playerId)
 	else
-
-		self.savedb:rawsave(t, prikey, prikeyvalue, playerId)
+		assert(self.prikey, string.format("error dbname %s miss prikey.", self.dbname))
+		self.savedb:rawsave(t, self.prikey, prikeyvalue, playerId)
 	end	
 end	
-
+--用于删除
 function outline:del(prikey)
 
 	local prikey = self.prikeyvalue or prikey
@@ -128,6 +130,7 @@ function outline:del(prikey)
 	self.saveRedis:delete(header, assert(self.playerId))
 end	
 
+--表达式 对主键对应的数据加减乘除
 --表示式支持 +-*/
 function outline:expr(t, prikey)
 

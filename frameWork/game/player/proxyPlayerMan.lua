@@ -56,15 +56,17 @@ function playerMan:sendEvent(playerId, cmd, ...)
 end
 
 --广播
-function playerMan:broadcast(cmd, ...)
+function playerMan:broadcast(cmd, exception, ...)
 
+	exception = exception or {}
+	assert(type(exception) == "table")
 	if SERVICE_OBJECT and type(SERVICE_OBJECT.proxyService) == "number" then
 
 		skynet.send(SERVICE_OBJECT.proxyService, "lua", "proxyBroadcast", cmd, ...)
 	else
 		for playerId, player in pairs(self.players) do
 
-			if player.agent then
+			if player.agent and not exception[playerId] then
 
 				self:sendEvent(playerId, cmd, ...)
 			end	

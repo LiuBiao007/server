@@ -1,5 +1,5 @@
 local mylog = require "base.mylog"
-local showitem = require "showItem"
+local showitem = require "show.showItem"
 
 local events = {}
 

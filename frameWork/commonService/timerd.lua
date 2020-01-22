@@ -68,7 +68,7 @@ local function changetime(ti)
             skynet.wakeup(v.co)
         end
     end
-    print(" ---->changetime ", string.dump(nt))
+
     return nt
 end
 
@@ -95,7 +95,6 @@ function timerd:timerd(source, ti)
         local nt = next_time(current, ti)
         task[session] = {time = nt, co = coroutine.running(), address = source}
         local diff = os.difftime(nt , ct)
-        print("===========>sleep", diff)
     until skynet.sleep(diff * 100) ~= "BREAK"
     task[session] = nil
     return nil

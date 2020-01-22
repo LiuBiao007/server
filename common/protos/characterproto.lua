@@ -188,7 +188,9 @@ entergame %d { #进入游戏 账号id 平台
 }
 
 outgame %d { #退出游戏
-	
+	response {
+		errorcode 0 : integer
+	}		
 }
 
 applyServerOrder %d {#申请充值服务订单

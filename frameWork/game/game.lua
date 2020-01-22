@@ -150,6 +150,8 @@ function game.init()
     initRedis()
 	initGameSql()
 	initShare()
+
+    uniqueService("commonService.logManager")
 end
 
 require "ext.table"
@@ -174,6 +176,7 @@ function game.run(func)
 
     uniqueService("player.masterProxyMan")
     func()
+    uniqueService("commonService.globalReward")
 end
 
 function game.runActivity()

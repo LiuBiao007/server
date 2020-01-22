@@ -15,8 +15,14 @@ function object:init(serviceName, ...)
 	return self
 end	
 
+function object:closeTrigger()
+
+	self.forbidTrigger = true
+end	
+
 function object:initTriggers()
 
+	if self.forbidTrigger then return end
 	serviceTrigger.add("onPlayerStateLoading")
 	serviceTrigger.add("onPlayerFullDataInRedis")
 	serviceTrigger.add("onPlayerStateEnter")	
@@ -85,4 +91,35 @@ function object:getPlayerInfoById(playerId)
 	return skynet.call(s, "lua", "getPlayerById", playerId)
 end	
 
+function object:checkPlayerExist(playerId)
+	local s = uniqueService("player.userCenter")
+	return skynet.call(s, "lua", "checkPlayerExist", playerId)
+end
+
+function object:sendBonusesMail(playerId, title, content, bonuses, type)
+	
+	local s = uniqueService("mail.mailCenter")	
+	skynet.send(s, "lua", "sendSystemMailEx", type, "system", 
+        playerId, title, content, bonuses)	
+end
+
+function object:getPlayerIdByName(name)
+
+	return self:call("user.userCenter", "getPlayerIdByName", name)
+end	
+
+function object:getPlayerIdsByName(name)
+
+	return self:call("user.userCenter", "getPlayerIdsByName", name) 
+end	
+
+function object:getPlayerByName(name)
+
+	return self:call("user.userCenter", "getPlayerByName", name) 
+end	
+
+function object:getPlayerIdByUserAndServerId(userid, serverid)
+
+	return self:call("user.userCenter", "getPlayerIdByUserAndServerId", userid, serverid) 
+end	
 return object

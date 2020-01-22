@@ -1,0 +1,18 @@
+skynet_root = "../3rd/skynet/"
+root = "../gameserver/"
+mylualib = root .. "lualib/"
+logic = root .. "logic/"
+const = root .. "const/"
+thread = 1
+harbor = 0
+start = "startRobot"
+bootstrap = "snlua bootstrap"
+
+lua_path = skynet_root .. "lualib/?.lua;" .. root .. "?.lua;" .. root .. "lualib/?.lua;" .. "../common/?.lua;" .. logic .. "?.lua;" .. const .. "?.lua;" .. "./?.lua;" .. "../robot/?.lua;"
+
+lua_cpath = skynet_root .. "luaclib/?.so;" .. root .. "luaclib/?.so"
+cpath = skynet_root .. "cservice/?.so"
+luaservice = "./?.lua;" .. skynet_root .. "service/?.lua;" .. root .. "luaservice/?.lua;" 
+lualoader = skynet_root .. "lualib/loader.lua"
+snax = skynet_root .. "?.lua"
+

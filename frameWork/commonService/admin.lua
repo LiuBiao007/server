@@ -5,7 +5,7 @@ local cjson			 = require "cjson"
 local socket 		 = require "skynet.socket"
 local dynamicMan	 = require "afw.dynamicMan"
 local codecache      = require "skynet.codecache"
-
+local adminCnf       = require "const.adminCnf"
 local clientsocket   = require "myclient"
 local admin    		 = class("admin", businessObject)
 
@@ -167,27 +167,35 @@ function admin:protocolSkip(fd, msg)
         else    
 
             local mailModule    = "mail.mailCenter"
-            local recycleNotice = "commonService.recycleNotice"
+            local logModule     = "commonService.logManager"
+            local rewardModule  = "commonService.globalReward"
+
             local map = {
-
-
+                --邮件
                 sendSystemMail               = mailModule,
 
+                --全服补偿
+                insertGlobalReward           = rewardModule,
+                deleteGlobalReward           = rewardModule,
+                getCurMaxRewardId            = rewardModule,
 
-                insertNotice                    = recycleNotice,
-                deleteNotice                    = recycleNotice,
-                forbidUserLogin                 = recycleNotice,
-                getOnlineCount                  = recycleNotice,
-                getPlayerInfoByName             = recycleNotice,
-                getPlayersInfoByName            = recycleNotice, --角色模糊查询
-                getAllNotice                    = recycleNotice,
-                getPlayerInfoByUidAndSid        = recycleNotice,
-                getPlayerInfoById               = recycleNotice,
+                -- 日志转移工具
+                removeLog                    = logModule,
+                getServerInfo                = logModule,
+                getPackLogRecords            = logModule,
+                getServerAndLogInfo          = logModule,
+                setLogErrorState             = logModule,
             }
-        	
+
+            for cmd, module in pairs(adminCnf) do
+
+                assert(not map[cmd], string.format("error cmd %s.", cmd))
+                map[cmd] = module
+            end    
+
             if map[protocolName] then
                 local err, errDesc, result  = self:call(map[protocolName], protocolName, data)
-                results = {errorcode = err, errDesc = errDesc and errDesc or "", results = result}
+                results = {errorcode = err, errDesc = errDesc or "", results = result}
             else    
         	   results = {errorcode = errorcode.admin_protocol_not_exist, errDesc = "admin protocol not exist!"}
             end

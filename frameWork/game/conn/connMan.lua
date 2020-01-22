@@ -354,6 +354,11 @@ function connMan:onPlayerStateEnter(playerId, fd)
 	mylog.info(" onlineCount [%s].", playerCount)
 end	
 
+function connMan:getOnlineCount()
+
+	return playerCount or 0
+end	
+
 function connMan:takeAgent()
 
 	local agent = table.remove(agentPool)

@@ -184,7 +184,7 @@ end
 
 function activity:onActivityOpenStateChanged()
 
-	self.playerMan:broadcast("sendEvent", 'activityOpenState', self:getActivityOpenState())
+	self.playerMan:broadcast("sendEvent", {}, 'activityOpenState', self:getActivityOpenState())
 end
 
 function activity:onActivityGlobalStateChanged(activityGlobalState)
@@ -192,7 +192,7 @@ function activity:onActivityGlobalStateChanged(activityGlobalState)
 	activityGlobalState.data = activityGlobalState.data
 	if not self.__globalkey then return end
 	assert(not self.isPlayerUnique, string.format("player activity do not need globalstate %s.", self.id))
-	self.playerMan:broadcast("sendEvent", "activityGlobalStateChanged", {activityGlobalState = self:getSendGlobalData()})
+	self.playerMan:broadcast("sendEvent", {}, "activityGlobalStateChanged", {activityGlobalState = self:getSendGlobalData()})
 end
 
 function activity:onActivityStateRemoveChanged(activityState)

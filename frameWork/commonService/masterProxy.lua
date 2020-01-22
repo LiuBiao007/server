@@ -131,7 +131,7 @@ end
 
 function masterProxy:activityGlobalStateChanged(data)
 
-	self.playerMan:broadcast("sendEvent", "activityGlobalStateChanged", 
+	self.playerMan:broadcast("sendEvent", {}, "activityGlobalStateChanged", 
 		{activityGlobalState = data})
 end	
 
@@ -157,7 +157,7 @@ end
 
 function masterProxy:activityOpenState(data)
 
-	self.playerMan:broadcast("sendEvent", "activityOpenState", 
+	self.playerMan:broadcast("sendEvent", {},  "activityOpenState", 
 		data)	
 end	
 

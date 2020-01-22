@@ -62,7 +62,7 @@ function monitor:shut()
 
 	--ws
 	if __cnf.webport then
-		skynet.send(skynet.uniqueservice('ws'), "lua", "exit")
+		skynet.send(uniqueService("websocket.ws"), "lua", "exit")
 	end	
 
 	--connMan

@@ -369,7 +369,7 @@ function basePlayer:initSubjects()
 end	
 
 function basePlayer:onCreatePlayer(_, serverName, uniqueData)
-print(" onCreatePlayer ", serverName, uniqueData)
+
 	self.welcome = 1
 	self:handData()
 	self:updateFinalValues()	

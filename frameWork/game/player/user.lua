@@ -146,7 +146,7 @@ function user:doRequest(name, args, response)
 	end	
 
 	if name == "outgame" then
-		mylog.info("playerId [%s] %s.", self.player.id, name)
+		mylog.info("playerId [%s] %s.", self.player and self.player.id or 0, name)
 	end	
 
 	local playerId = 0

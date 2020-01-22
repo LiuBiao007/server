@@ -144,9 +144,12 @@ function dbMan:shut()
     return true
 end    
 
-function dbMan:save()
+function dbMan:save(playerCache, n)
 
-    if totalSqlCount > 0 then
+    local cache = playerCache or cache
+    if n and n > 0 then
+        mylog.info("    玩家下线预计存储SQL总数: [%s].", n)
+    elseif totalSqlCount > 0 then
         mylog.info("    当前预计存储SQL总数: [%s].", totalSqlCount)
     end 
 
@@ -229,17 +232,21 @@ function dbMan:onPlayerStateOut(playerId)
     assert(player, string.format("player %s has not created.", playerId)) 
     
     if not player:isInGame() then return end    
-    
-    self:savePlayer(playerId)
+    local s = cache[playerId]
+    local n = 0
+    if s and s.n > 0 then 
+        n = s.n
+    end    
+    self:save({[playerId] = s}, n)
+
     local now = os.getCurTime()
     player:setInGame(false)
     mylog.info(" playerId %s 退出游戏, 数据将在%s分钟后删除.", playerId, __cnf.cacheTime)
     
     skynet.timeout(__cnf.cacheTime * 60 * 100, function ()
 
-        --double check
         local player = self.playerMan:getPlayerById(playerId)
-        if player and not player:isInGame() and not player:inRemove() then
+        if player then
 
             player.safeLock(self.removePlayerRedisData, playerId .. " remove", self, player)
         end    
@@ -248,7 +255,18 @@ end
  
 function dbMan:removePlayerRedisData(player)
 
+    --double check
     local playerId = player.id
+    local s = cache[playerId]
+    if s and s.n > 0 then 
+        mylog.info("    playerId %s 数据未存储完毕, 取消删除redis数据.", playerId)
+        return 
+    end
+
+    if player:isInGame() or player:inRemove() then
+        return
+    end    
+
     mylog.info(" playerId %s Redis数据开始卸载.", playerId)
     player:setFullDataInRedis(false)
     player:setRemove(true)
@@ -284,11 +302,11 @@ end
 function dbMan:saveCacheOk(playerId, n)
 
     local s = cache[playerId]
-    assert(s)
+    assert(s, string.format("error playerId %s n %s.", playerId, n))
     s.n = s.n - n
     if s.n <= 0 then cache[playerId] = nil end
     totalSqlCount = totalSqlCount - n
-    mylog.info(" 已存储 playerId:%s [%s] 条SQL, 剩余 [%s] 条SQL.", playerId, n, totalSqlCount)
+    mylog.info(" 已存储 playerId:%s [%s] 条SQL, 剩余 [%s] 条SQL, 总剩余 [%s] 条SQL.", playerId, n, s.n, totalSqlCount)
 end 
 
 function dbMan:loadGameData(playerId, agent, isCreate)
@@ -361,7 +379,6 @@ function dbMan:loadDataFromRedis(playerId)
 
             table.insert(result[dbname], srd:new(dbname):hgetall(header))
         end   
-        print(">>>>>>>> loadDataFromRedis ", dbname, #ids) 
     end    
 
     return result
@@ -380,7 +397,6 @@ function dbMan:loadDataFromMysql(playerId)
         assert(not result[dbname], string.format("dbname %s repeat.", dbname))
         local r = db:name(dbname):where(_playerid, playerId):select()
         result[dbname] = r
-        print(">>>>>>>> loadDataFromMysql ", dbname, #r)
     end    
     
     return result

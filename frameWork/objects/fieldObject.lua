@@ -43,14 +43,14 @@ function fieldObject:init(dbname, switchMonitorJson)
 end	
 
 --数据库装载数据时调用
-function fieldObject:load(data, t)
+function fieldObject:load(data, ...)
 
-	return self:new():attach(data, true, t)
+	return self:new(...):attach(data, true)
 end	
 --创建新的数据对象时调用
-function fieldObject:create(data, t)
+function fieldObject:create(data, ...)
 
-	return self:new():attach(data, false, t)
+	return self:new(...):attach(data, false)
 end	
 
 local function compareTable(t1, t2)
@@ -101,7 +101,7 @@ function fieldObject:monitorJson()
 end	 
 
 --初始化数据库数据
-function fieldObject:attach(data, isLoad, t)
+function fieldObject:attach(data, isLoad)
 		
 	assert(type(data) == "table", string.format("data type %s error.", data))
 	assert(not getmetatable(data))
@@ -234,10 +234,6 @@ function fieldObject:attach(data, isLoad, t)
 	if isLoad then
 		rawset(self, "writeStep", false)
 	end
-
-	if type(t) == "table" then
-		self:setData(t)
-	end	
 
 	if type(self.initGameData) == "function" then
 		self:initGameData()

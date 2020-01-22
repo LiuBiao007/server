@@ -1,2 +1,6 @@
 *.log
 frameWork/3rd/
+*.so
+*.zip
+gameServer/config
+masterServer/config

@@ -1,28 +1,7 @@
 local skynet            = require "skynet"
 local mylog             = require "base.mylog"
-local toolex            = require "base.toolex"
-local string            = string
-local table             = table
-local os                = os
-local tonumber          = tonumber
-local assert            = assert
-local basedb            = require "dbs.basedb"
-local srd               = require "redis.saveRedis"
-local math              = math
-local os_date           = os.date
-local math_random       = math.random
-local string_format     = string.format
-local string_gsub       = string.gsub
-local load              = load
-local math_randomseed   = math.randomseed
-local push              = table.insert
-local ttr               = function(arr) return table.remove(arr, 1) end
-local pop               = function (arr) 
-    return tonumber(ttr(arr))
-end 
 
 local tools = {}
-
 function tools.addExp(obj,exp,data,extra)
 	
     local l,e = "level","exp"
@@ -46,27 +25,6 @@ function tools.addExp(obj,exp,data,extra)
 	obj[l] = level
 	--assert(obj[l] <= maxLevel)
 	if obj[l] == maxLevel then obj[e] = 0 end
-end
-
-function tools.getPlayerIdByName(playerName, redisdb)
-    local header = "playerName:" .. playerName
-    local playerId = redisdb:get(header)
-    if playerId and #playerId == 24 then
-        return playerId
-    end
-    return nil
-end 
-
---后台模糊查询
-function tools.getPlayerIdsByName(playerName, redisdb)
-    local playerIds = {}
-    local header = "playerName:*" .. playerName .. "*"
-    local playerNames = redisdb:keys(header)
-    for k, v in ipairs(playerNames or {}) do 
-        table.insert(playerIds, redisdb:get(v))
-    end
-    
-    return playerIds
 end
 
 function tools.getProtoById(protoId, xmls)
@@ -304,8 +262,8 @@ function tools.getDelayForbidTime(hour)
     else
         newSec = os.time() - 10
     end    
-    --local newSec = tools.getTime() + math.floor(hour * 60 * 60)
-    return newSec --tools.dateTimeToString(newSec) 
+
+    return newSec
 end    
 
 function tools.hash2Arr_one(hash)

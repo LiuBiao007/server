@@ -1,4 +1,5 @@
 local skynet		 = require "skynet"
+local redis 		 = require "skynet.db.redis"
 local uniqueService  = require "services.uniqueService"
 local businessObject = require "objects.businessObject"
 local serviceTrigger = require "base.serviceTrigger"
@@ -25,6 +26,27 @@ function masterService:init()
     self.activities    = {}
     --self:runActivity()
     skynet.fork(self.runActivity, self)
+
+    self:listenShut()
+end	
+
+function masterService:listenShut()
+
+	local function watch(self)
+
+		local w = redis.watch(__cnf.redis)
+		w:subscribe("onmonitorclose")
+		while true do
+
+			local s = w:message()
+			if s and s == "1" then
+				self:shut()
+				break	
+			end		
+			skynet.sleep(100)
+		end	
+	end		
+	skynet.fork(watch, self)	
 end	
 
 function masterService:runActivity()
@@ -227,22 +249,33 @@ end
 
 function masterService:shut()
 
+	mylog.info("跨服开始关闭.")
 	isClose = true
-
-	for activityId, service in pairs(self.activities) do
-
-		mylog.info(" %s 跨服活动准备关闭.")
-		skynet.call(service, "lua", "shut")
-		mylog.info(" %s 跨服活动关闭完成.")
-	end	
 
 	for serverId, co in pairs(serverId2event) do
 		serverco2data[co] = closeResponse
 		skynet.wakeup(co)
 	end
 	serverId2event = {}	
+
+	for activityId, service in pairs(self.activities) do
+
+		local name = ACTIVITY_CONFIG[activityId].name
+		mylog.info(" %s 跨服活动准备关闭.", name)
+		skynet.call(service, "lua", "shut")
+		mylog.info(" %s 跨服活动关闭完成.", name)
+	end	
 	
 	SERVICE_OBJECT:call("db.dbMan", "shut")
+	mylog.info("跨服完成关闭.")
+	redisdb:publish("masterCLose", 1)
+	redisdb:set("masterCLose", 1)
+	skynet.timeout(150, function ()
+
+		mylog.info("	程序自己退出.")
+		redisdb:set("masterCLose", 1)
+		os.exit()
+	end)
 
 	return nil
 end	

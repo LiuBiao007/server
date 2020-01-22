@@ -56,6 +56,19 @@ local errorcode = {
 	bonus_round_must_once 			= 142, -- 奖励回合数需为1次
 	bonus_rate_must_drop 			= 143, -- 奖励概率需必掉	
 
+	globalReward_id_error			= 144, -- 全服补偿奖励ID错误
+	globalReward_time_error			= 145, -- 全服补偿奖励时间错误
+	globalReward_title_error		= 146, -- 全服补偿奖励邮件标题错误
+	globalReward_content_error		= 147, -- 全服补偿奖励邮件内容错误
+	globalReward_attaches_error		= 148, -- 全服补偿奖励邮件附件错误
+	globalReward_id_not_exist		= 149, -- 全服补偿奖励ID不存在
+
+	-- 循环公告
+	recycleNotice_time_error		= 150, -- 循环公告时间错误
+	recycleNotice_interval_error	= 151, -- 循环公告间隔时间错误
+	recycleNotice_content_error		= 152, -- 循环公告内容错误
+	recycleNotice_id_error			= 153, -- 循环公告id错误或已有
+	recycleNotice_id_not_exist		= 154, -- 循环公告id不存在
 
 	-- 背包
 	bag_space_no_enough 					= 271, -- 背包空间不足

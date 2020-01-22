@@ -2,6 +2,7 @@ local skynet		= require "skynet"
 local uniqueService = require "services.uniqueService"
 local basePlayer 	= require "player.basePlayer"
 local subject 		= require "base.subject"
+local tools         = require "util.tool"
 local xmls			= xmls
 local player 		= class("player", basePlayer)
 
@@ -151,6 +152,15 @@ function player:getSendStruct()
 		factionActivityStates 	= {}
 	}
 end
+
+function player:forbidUserLogin(hour)
+
+	local date = tools.getDelayForbidTime(hour)
+	self.forbidTime = date
+	if hour > 0 then
+		self.user:kickSelf()
+	end	
+end	
 --奖励结构
 function player:attachBonuses(bonus, bonusesResult)
 

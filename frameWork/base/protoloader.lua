@@ -1,6 +1,5 @@
 local sprotoloader = require "sprotoloader"
 local gameproto = require "protos.parser"
-print(gameproto)
 local loader = {}
 
 loader.game_c2s = 1

@@ -22,7 +22,6 @@ function table.clone(t)
     end 
 
     local t  = _clone(obj)
-    print("t = ", t)
     return t
 end    
 

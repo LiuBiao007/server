@@ -109,25 +109,25 @@ end
 
 function dynamicActivity:onDynamicActivityInsert()
 
-	self.playerMan:broadcast("sendEvent", 'dynamicActivityInsert', 
+	self.playerMan:broadcast("sendEvent", {}, 'dynamicActivityInsert', 
 		{dynamicActivityParam = self.param:packet()})
 end	
 
 function dynamicActivity:onDynamicActivityRemove()
 
-	self.playerMan:broadcast("sendEvent", 'dynamicActivityRemove', 
+	self.playerMan:broadcast("sendEvent", {}, 'dynamicActivityRemove', 
 		{id = self.param.id})    
 end	
 
 function dynamicActivity:onDynamicActivitySortIndex()
 
-	self.playerMan:broadcast("sendEvent", 'dynamicActivitySortIndex', 
+	self.playerMan:broadcast("sendEvent", {}, 'dynamicActivitySortIndex', 
 		{id = self.param.id, sortIndex = self.param.sortIndex})
 end	
 
 function dynamicActivity:onDynamicActivityStateChanged()
 
-	self.playerMan:broadcast("sendEvent", 'dynamicActivityStateChanged', 
+	self.playerMan:broadcast("sendEvent", {}, 'dynamicActivityStateChanged',
 		{id = self.param.id, state = self.param.state})
 end	
 
