@@ -10,11 +10,11 @@ SHARED := -fPIC --shared
 
 
 SKYNET_CSERVICE = $(SKYNET_ROOT)cservice/
-MCSERVICE = csjon skiplist time ltls myclient webclient
+MCSERVICE = cjson skiplist time ltls myclient webclient
 all : skynet \
 	$(foreach v, $(MCSERVICE), $(MCSERVICE_PATH)$(v).so) \
-	$(SKYNET_CSERVICE)logger.so \
-	\
+	$(MCSERVICE_PATH)logger.so \
+	copylog \
 
 .PHONY : all clean cleanall	
 
@@ -26,7 +26,7 @@ JSONSRC = \
 	fpconv.c \
 	\
 
-$(MCSERVICE_PATH)csjon.so : $(addprefix $(CJSON_ROOT),$(JSONSRC))
+$(MCSERVICE_PATH)cjson.so : $(addprefix $(CJSON_ROOT),$(JSONSRC))
 	$(CC) $(CFLAGS) -I$(CJSON_ROOT) $(SHARED) $^ -o $@
 
 $(CJSON_ROOT)lua_cjson.c :
@@ -53,7 +53,7 @@ JE_MALLOC_LIB := $(SKYNET_ROOT)3rd/jemalloc/lib/libjemalloc_pic.a
 TLS_LIB=
 TLS_INC=
 
-$(SKYNET_CSERVICE)logger.so :$(SRC_DIR)/service_mylog.c 
+$(MCSERVICE_PATH)logger.so :$(SRC_DIR)service_mylog.c  | $(MCSERVICE_PATH)
 	$(CC) $(CFLAGS) $(SHARED) $^ -o $@ -I$(SKYNET_ROOT)skynet-src
 
 $(MCSERVICE_PATH)skiplist.so : $(foreach v, $(zrank-src), $(SRC_DIR)/$(v)) $(SKYNET_ROOT)skynet-src/malloc_hook.c
@@ -71,10 +71,13 @@ $(MCSERVICE_PATH)myclient.so :$(SRC_DIR)/lua-clientsocket.c | $(MCSERVICE_PATH)
 $(MCSERVICE_PATH)ltls.so : $(SRC_DIR)/ltls.c | $(MCSERVICE_PATH)
 	$(CC) $(CFLAGS) $(SHARED) -I$(SKYNET_ROOT)skynet-src -L$(TLS_LIB) -I$(TLS_INC) $^ -o $@ -lssl	
 
+copylog:
+	$(warning exec copylog)cp $(MCSERVICE_PATH)logger.so $(SKYNET_CSERVICE)
+
 clean :
 	rm -f $(MCSERVICE_PATH)*.so
 
 cleanall : clean
 	cd $(SKYNET_ROOT) && $(MAKE) cleanall
-	cd $(CJSON_ROOT) && $(MAKE) cleanall
+	cd $(CJSON_ROOT) && $(MAKE) clean
 
