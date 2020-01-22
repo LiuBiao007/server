@@ -1,0 +1,6 @@
+[submodule "frameWork/3rd/skynet"]
+	path = frameWork/3rd/skynet
+	url = https://github.com/cloudwu/skynet.git
+[submodule "frameWork/3rd/lua-cjson"]
+	path = frameWork/3rd/lua-cjson
+	url = https://github.com/mpx/lua-cjson.git
